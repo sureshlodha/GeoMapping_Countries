@@ -1,0 +1,49 @@
+"Table 051-0042 Estimates of population, by marital status or legal marital status, age and sex for July 1, Canada, provinces and territories, annual (persons)(1,2,3,4)"
+Survey or program details:
+"Estimates of population, by marital status or legal marital Status, age and sex for July 1, Canada, provinces and territories - 3605"
+Geography,Marital status,Sex,"Age group (22,23)",2015,2016
+Canada,"Total marital status (7,8)",Both sexes,All ages,35832513,36264604
+Canada,"Total legal marital status (8,16)",Both sexes,All ages,35832513,36264604
+Newfoundland and Labrador,"Total marital status (7,8)",Both sexes,All ages,528815,530305
+Newfoundland and Labrador,"Total legal marital status (8,16)",Both sexes,All ages,528815,530305
+Prince Edward Island,"Total marital status (7,8)",Both sexes,All ages,146791,149472
+Prince Edward Island,"Total legal marital status (8,16)",Both sexes,All ages,146791,149472
+Nova Scotia,"Total marital status (7,8)",Both sexes,All ages,941545,948618
+Nova Scotia,"Total legal marital status (8,16)",Both sexes,All ages,941545,948618
+New Brunswick,"Total marital status (7,8)",Both sexes,All ages,753944,757384
+New Brunswick,"Total legal marital status (8,16)",Both sexes,All ages,753944,757384
+Quebec,"Total marital status (7,8)",Both sexes,All ages,8254912,8321888
+Quebec,"Total legal marital status (8,16)",Both sexes,All ages,8254912,8321888
+Ontario,"Total marital status (7,8)",Both sexes,All ages,13789597,13976320
+Ontario,"Total legal marital status (8,16)",Both sexes,All ages,13789597,13976320
+Manitoba,"Total marital status (7,8)",Both sexes,All ages,1295422,1318115
+Manitoba,"Total legal marital status (8,16)",Both sexes,All ages,1295422,1318115
+Saskatchewan,"Total marital status (7,8)",Both sexes,All ages,1131150,1148588
+Saskatchewan,"Total legal marital status (8,16)",Both sexes,All ages,1131150,1148588
+Alberta,"Total marital status (7,8)",Both sexes,All ages,4177527,4236376
+Alberta,"Total legal marital status (8,16)",Both sexes,All ages,4177527,4236376
+British Columbia,"Total marital status (7,8)",Both sexes,All ages,4694699,4757658
+British Columbia,"Total legal marital status (8,16)",Both sexes,All ages,4694699,4757658
+Yukon,"Total marital status (7,8)",Both sexes,All ages,37289,38086
+Yukon,"Total legal marital status (8,16)",Both sexes,All ages,37289,38086
+Northwest Territories including Nunavut (5),"Total marital status (7,8)",Both sexes,All ages,,
+Northwest Territories including Nunavut (5),"Total legal marital status (8,16)",Both sexes,All ages,,
+Northwest Territories (6),"Total marital status (7,8)",Both sexes,All ages,44214,44617
+Northwest Territories (6),"Total legal marital status (8,16)",Both sexes,All ages,44214,44617
+Nunavut (6),"Total marital status (7,8)",Both sexes,All ages,36608,37177
+Nunavut (6),"Total legal marital status (8,16)",Both sexes,All ages,36608,37177
+Footnotes:
+1,This table replaces CANSIM table 51-0010.
+2,"This table contains data from two separate data bases: (1) data by 'marital status' where persons living in common-law unions are a category and (2) data by 'legal marital status' where persons living in common law are listed according to whether they are single, married, separated, widowed or divorced."
+3,"Marital status indicates the conjugal status of a person. The estimates by legal marital status are presented in the following categories: Single (including living common law), married (and not separated), separated (including living common law), widowed (including living common law) or divorced (including living common law). The estimates by marital status are presented in the following categories: Single (not living common law), married (and not separated), separated (not living common law), living common law, widowed (not living common law) or divorced (not living common law)."
+4,Postcensal estimates are based on the 2011 Census results adjusted for census net undercoverage. Intercensal estimates are based on intercensal estimates by age and sex and data adjusted for census net undercoverage of the censuses preceding and following the considered year.
+5,Population estimates for Northwest Territories and Nunavut are presented separately from 1991.
+6,"Prior to 1991, only estimates of population for Northwest Territories and Nunavut combined are available."
+7,Estimates by marital status are available from 1971.
+8,"Estimates are final intercensal up to 2010, final postcensal from 2011 to 2013, updated postcensal from 2014 to 2016 and preliminary postcensal for 2017."
+16,Estimates by legal marital status are available from 1991.
+22,Age at last birthday in years.
+23,Data for persons aged 90 to 100 years and over will be available from 2001.
+Source:
+"Statistics Canada. Table 051-0042 - Estimates of population, by marital status or legal marital status, age and sex for July 1, Canada, provinces and territories, annual (persons)"
+"(accessed: May 16, 2018)"

@@ -1,0 +1,17 @@
+body {
+    font-family: sans-serif;
+}
+p {
+    font-size: 12px;
+}
+#ireland path {
+    stroke: #fff;
+    stroke-width: .25px;
+}
+.tooltip {
+    position: absolute;
+    font-size: 12px;
+    width:  auto;
+    height: auto;
+    pointer-events: none;
+}

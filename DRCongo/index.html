@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>DRC Population</title>
+		<script src="https://d3js.org/d3.v4.min.js"></script>
+		<style type="text/css">
+            .title {
+                text-align: center;
+            }	
+		</style>
+	</head>
+	<body>
+        <h1 class="title"> Democratic Republic of the Congo, Population Density in 2015</h1>
+        <svg></svg>
+        <p><a href="https://github.com/ghartman1620/drc-population-density">Github</a></p>
+        <p><a href="http://www.citypopulation.de/CongoDemRep-Cities.html">Population and area data source</a></p>
+        <p>Gabriel Hartman</p>
+        <p>Instructor: Suresh Lodha</p>
+        <p>CMPS 165: Data programming for Visualization</p>
+        <p>Spring 2018</p>
+		<script type="text/javascript">
+
+			//Width and height
+			var w = 1500;
+			var h = 900;
+
+			var path = d3.geoPath().projection(d3.geoMercator().scale([2000]).translate([10, 250]));
+
+
+			//Create SVG element
+			var svg = d3.select("svg")
+						.attr("width", w)
+						.attr("height", h);
+			//Load in GeoJSON data
+            
+            
+			d3.json("DRC.json", function(json) {
+				d3.csv("PopulationDensity.csv", function(data){
+                    const colors = ["#c6dbef", "#9ecae1", "#6baed6", "#3182bd","#08519c"]
+                    var color = d3.scaleQuantize()
+                        .domain([d3.min(data, d => d.population2015/d.area), d3.max(data, d => d.population2015/d.area)])
+                        .range(colors);
+                        //color source: https://betterfigures.org/2015/06/23/picking-a-colour-scale-for-scientific-graphics/
+  
+                    
+                    svg.selectAll("path")
+                       .data(json.features)
+                       .enter()
+                       .append("path")
+                       .attr("d", path)
+                       .attr("stroke", "black")
+                       .attr("fill", c => {
+                            let datum = data.find(function(d){
+                                return d.province === c.properties.Name;
+                            })
+                            return color(datum.population2015/datum.area);
+                       })
+                    
+                        //tooltip for each province
+                       .append("title")
+                       .text(c => `${c.properties.Name}: ` + 
+                            `${d3.format(",")(data.find(function(d){return d.province===c.properties.Name}).population2015)} people in ` + 
+                            `${d3.format(",")(data.find(function(d){return d.province===c.properties.Name}).area)} km^2`);  
+                
+                    
+                    
+                    //let's create a legend!
+                    const LEGEND_X = 500;
+                    const LEGEND_Y = 800;
+                    const LEGEND_HEIGHT = 20;
+                    const LEGEND_WIDTH=100;
+                    
+                    // small gripe - d3, I know what I'm doing. If I say I want six ticks, give me six ticks. 
+                    // This code would be great, and you could change the number of colors in the colors array and it would be 
+                    // fantastic, except that d3 thinks its too good to listen to the function caller and does whatever it wants.
+                    
+                    
+                    var ticks = color.ticks(colors.length);
+
+                    svg.selectAll("rect")
+                        .data(ticks)
+                        .enter()
+                        .append("rect")
+                        .attr("height", LEGEND_HEIGHT)
+                        .attr("width" , LEGEND_WIDTH)
+                        .attr("x", (d,i) => { return LEGEND_X + LEGEND_WIDTH*i;})
+                        .attr("y", LEGEND_Y)
+                        .attr("fill", d => color(d));
+                    
+                    //labels for each legend bar
+                    svg.selectAll("text")
+                        .data(color.ticks(colors.length)).enter()
+                        .append("text")
+                        .attr("x", (d,i) => {return LEGEND_X + LEGEND_WIDTH*i;})
+                        .attr("y", LEGEND_Y)
+                        .attr("dy", -LEGEND_HEIGHT/4)
+                        .attr("dx", LEGEND_WIDTH/2)
+                        .attr("text-anchor", "middle")
+                        .text((d, i) => i === 0 ? `<${d}` : ( i === colors.length-1 ? `>${d}` : `${ticks[i-1]}-${ticks[i]}`));
+                    
+                    //unit label for the graph
+                    svg.append("text")
+                        .attr("x", LEGEND_X+ LEGEND_WIDTH*colors.length/2)
+                        .attr("y", LEGEND_Y - 40)
+                        .attr("text-anchor", "middle")
+                        .text("Population denisty (people per km^2)");
+                })
+                
+		
+			});
+			
+		</script>
+	</body>
+</html>

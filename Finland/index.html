@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Mercator projection map of Finland</title>
+		<script type= "text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+		<style type="text/css">
+			body {
+				background-color: whitesmoke;
+                                font-family: Helvetica, Arial, sans-serif;
+                                margin: 0;
+			}
+			#container {
+				width: 700px;
+				margin-left: auto;
+				margin-right: auto;
+				margin-top: 50px;
+				padding: 50px;
+				background-color: white;
+				box-shadow: 6px 6px 6px 12px #ccc;
+			}
+			h1 {
+                                font-size: 20px;
+                                margin: 0;
+                        }
+			svg {
+				background-color: white;
+			}
+		</style>
+	</head>
+	<body>
+
+        <h1 align = "center" >Finland</h1>
+	   <script type="text/javascript">
+			//Width and height
+			var w = 700;
+			var h = 800;
+                        var padding = [ 0, 0, 0, 0 ];
+			//Define map projection
+			var projection = d3.geoMercator()
+					   .center([ 25, 65 ])
+			        	   .translate([ w/2, h/2 ])
+					   .scale( [w * 1.5] );
+			//Define path generator
+			var path = d3.geoPath()
+					.projection(projection);
+			//Create SVG
+			var svg = d3.select("body")
+					.append("svg")
+					.attr("width", w)
+					.attr("height", h);
+
+			//Define quantize scale to sort data values into buckets of color
+			var color = d3.scaleQuantize()
+					.domain([1, 100, 200, 300, 400])
+					.range(["rgb(237,248,233)","rgb(186,228,179)",
+						"rgb(116,196,118)","rgb(49,163,84)","rgb(0,109,44)"]);
+			
+
+			//color2 is only for making scales, where is color is used in the map
+			var color2 = d3.scaleThreshold()
+					.domain([1, 100, 200, 300, 400])
+					.range(["rgb(237,248,233)","rgb(186,228,179)",
+						"rgb(116,196,118)","rgb(49,163,84)","rgb(0,109,44)"]);
+
+			//create scale to show which wht each shade of color represented
+			var x = d3.scaleLinear()
+			    .domain([0, 600])
+			    .range([0, 400]);
+			//x Axis
+			var xAxis = d3.axisBottom()
+			    .scale(x)
+			//move the scale
+			var g = svg.append("g")
+			    .attr("class", "key")
+			    .attr("transform", "translate(200,40)");
+			//defined rectange with size/color
+			g.selectAll("rect")
+			    .data(color2.range().map(function(d, i) {
+				      d = color2.invertExtent(d);
+				      if (d[0] == null) d[0] = x.domain()[0];
+				      if (d[1] == null) d[1] = x.domain()[1];
+				      return d;
+			    }))
+
+			.enter().append("rect")
+			    .attr("height", 8)
+			    .attr("x", function(d) { return x(d[0]); })
+			    .attr("width", function(d) { return x(d[1]) - x(d[0]); })
+			    .attr("fill", function(d) { return color2(d[0]); });
+			//text label
+			svg.append("text")             
+				.attr("transform", "translate(300,30)")
+			    .style("text-anchor", "middle")
+			    .text("Population By Province");
+			//value text label
+			svg.append("text")             
+				.attr("transform", "translate(200,70)")
+			    .style("text-anchor", "middle")
+			    .text("0");
+			svg.append("text")             
+				.attr("transform", "translate(450,70)")
+			    .style("text-anchor", "middle")
+			    .text("1.6 million");
+			//Load in GeoJSON data
+			d3.csv("fin_pop_by_prov.csv", function(data) {
+
+				//Set input domain for color scale
+				color.domain([
+					d3.min(data, function(d) { return d.value; }), 
+					d3.max(data, function(d) { return d.value; })
+				]);
+				d3.json("finland.json", function(json) {
+					//go through csv, find when csv's state and Json's properties.name is the same, then copy population to JSOn
+					for (var i = 0; i < data.length; i++) {
+					
+						var dataProvince = data[i].state;
+						console.log(i+1 + dataProvince);
+						var dataValue = parseFloat(data[i].value);
+
+						for (var j = 0; j < json.features.length; j++) {
+						
+							var jsonState = json.features[j].properties.Name;
+							if (dataProvince == jsonState) {
+						
+								//copy value to JSON
+								json.features[j].properties.value = dataValue;
+								
+								break;
+								
+							}
+						}		
+					}
+					//color the map with shades of green or white if province is undefined 
+					svg.selectAll("path")
+					   .data(json.features)
+					   .enter()
+					   .append("path")
+					   .style("fill", function(d) {
+
+					   		var value = d.properties.value;
+					   		console.log(value);
+					   		if (value) {
+						   		return color(value);
+					   		} else {
+						   		return "#fff";
+					   		}
+					   })
+					   .attr("d", path)
+	                   .attr("fill", "white")
+					   .attr("stroke", "black")
+					   .attr("stroke-width", .75 );
+			
+				});
+			});
+		</script>
+		<h1><a href = "https://github.com/fjjason/Finland-Population-Visualization"> Github Link (clickable)</a></h1>
+		<h1><a href = "https://fjjason.github.io/">Weblink(s) for data source(s) with appropriate titles for the weblinks</a></h1>
+		<h1>Hanlin Chen</h1>
+		<h1>Instructor: Suresh Lodha</h1>
+		<h1>CMPS 165: Data programming for Visualization</h1>
+		<h1>Spring 2018</h1>
+	</body>
+</html>

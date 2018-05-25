@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<h1 style = "text-align:center"><strong>Morocco Population Density, 2005</strong></h1>
+        <p><center>This map of Morocco shows the country's population density by province. </center></p>
+        
+		<script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+		<style type="text/css">
+			/* No style rules here yet */		
+		</style>
+	</head>
+	<body>
+        
+		<script type="text/javascript">
+
+			// Width and height definitions.
+			var w = 1500;
+			var h = 650;
+
+			// Define map projection, translate it, rotate, and scale to make it bigger.
+			var projection = d3.geoMercator()
+								   .translate([w/2, h/2])
+                                   .rotate([6, -32])
+								   .scale([3500]);
+
+			// Define path generator.
+			var path = d3.geoPath()
+							 .projection(projection);
+							 
+			// Threshold scale for buckets of color for population density map.
+			var color = d3.scaleThreshold()
+                .domain([3, 10, 50, 100, 500])
+				.range(["#fee5d9","#fcae91","#fb6a4a","#de2d26","#a50f15"]);
+								
+
+			// Create SVG element with specified height and width.
+			var svg = d3.select("body")
+						.append("svg")
+						.attr("width", w)
+						.attr("height", h);  
+            
+            // Define the domain and range for the legend.
+            var x = d3.scaleSqrt()
+                .domain([0, 5000])
+                .rangeRound([440, 950]);
+
+            // Move the legend to the right be 50px and down by 30px.
+            var g = svg.append("g")
+                .attr("id", "red")
+                .attr("class", "key")
+                .attr("transform", "translate(50,30)");
+
+            // Get the color range for the legend, set its height to 8px, width and fill defined by color.
+            g.selectAll("rect")
+                .data(color.range().map(function(d) 
+                {
+                    d = color.invertExtent(d);
+                    if (d[0] == null) d[0] = x.domain()[0];
+                    if (d[1] == null) d[1] = x.domain()[1];
+                    return d;
+                }))
+                .enter().append("rect")
+                .attr("height", 8)
+                .attr("x", function(d) { return x(d[0]); })
+                .attr("width", function(d) { return x(d[1]) - x(d[0]); })
+                .attr("fill", function(d) { return color(d[0]); });
+            
+            // Make the label for the legend.
+            g.append("text")
+                .attr("class", "caption")
+                .attr("x", x.range()[0])
+                .attr("y", -6)
+                .attr("fill", "#000")
+                .attr("text-anchor", "start")
+                .attr("font-weight", "bold")
+                .text("Population per square kilometer");
+            
+            // Legend tickmarks have a height of 13, and separate each color domain.
+            g.call(d3.axisBottom(x)
+                .tickSize(13)
+                .tickValues(color.domain()))
+                .select(".domain")
+                .remove();
+            
+			// Load in data from CSV.
+			d3.csv("Morocco.csv", function(data) 
+            {
+				// Load in GeoJSON data.
+				d3.json("Morocco.json", function(json) 
+                {
+                    // Output the original json file.
+                    console.log(json.features)
+                    
+					//Merge the CSV data and GeoJSON data.
+					// Loop through once for each CSV data value.
+					for (var i = 0; i < data.length; i++) 
+                    {
+						// Grab province name from JSON.
+						var dataProv = data[i].name;
+						
+						// Grab data values from CSV, and convert from string to float.
+						var dataPop = parseFloat(data[i].popdens);
+				
+						// Find the corresponding province inside the GeoJSON.
+						for (var j = 0; j < json.features.length; j++) 
+                        {
+							var jsonProv = json.features[j].properties.NAME_2;
+				
+							if (dataProv == jsonProv) 
+                            {
+								// Copy the data value into the JSON.
+								json.features[j].properties.popdens = dataPop;
+                                //console.log("matched pop");
+								
+								// Stop looking through the JSON.
+								break;
+							}
+						}		
+					}
+                    
+                    // See how the JSON file has changed to add properties popdens.
+                    console.log(json)
+                    
+                    
+					// Bind data and create one path per GeoJSON feature.
+					svg.selectAll("path")
+					   .data(json.features)
+					   .enter()
+					   .append("path")
+					   .attr("d", path)
+					   .style("fill", function(d) 
+                        {
+					   		// Get data value for popdens.
+					   		var popdens = d.properties.popdens;	
+                            if (popdens) {
+					   			//If value exists…
+						   		return color(popdens);
+					   		} else {
+					   			//If value is undefined…
+						   		return "#ccc";
+					   		}
+					   });
+				});
+			});
+            
+            
+            
+		</script>
+    
+    <p>Isha Aggarwal<br>Instructor: Suresh Lodha<br>CMPS 165: Data Programming for Visualization<br>Spring 2018</p>
+        
+    <p><a href="https://en.wikipedia.org/wiki/List_of_administrative_divisions_of_Morocco_by_population"</a> Source 1<br><a href="https://en.wikipedia.org/wiki/List_of_administrative_divisions_of_Morocco_by_area"</a> Source 2</p> 
+        
+    <p><a href="https://ishamartinez.github.io"</a> Github Visualization Link</p>
+        
+	</body>
+</html>

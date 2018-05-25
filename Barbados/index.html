@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html> 
+  <head>
+    <!-- Meta Tag -->
+    <meta charset="utf-8">
+    <title>Barbados Population Density</title>
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="example.css">
+    <!-- D3.js Source -->
+    <script type= "text/javascript" src="http://d3js.org/d3.v4.min.js"></script>
+      <script src="//d3js.org/d3.v4.min.js" charset="utf-8"></script>
+    <script src="//d3js.org/topojson.v1.min.js"></script>
+
+  </head>
+    <h1 style = "text-align:center; color:steelblue"><bold> Barbados Population Density, 2010 </bold></h1>
+    <style>
+    svg {
+        font: 10px sans-serif;
+    }
+    .caption {
+      font-weight: bold;
+    }
+    .key path {
+      display: none;
+    }
+    .key line {
+      stroke: #000;
+      shape-rendering: crispEdges;
+    }
+    .county-border {
+      fill: none;
+      stroke: #000;
+      stroke-opacity: .2;
+    }
+
+    .color {
+        background-color: #b0b0b0; 
+        border-radius: 10px;
+        border: none;
+        color: white;
+        padding: 10px 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px;
+    }
+    .boundary {
+        background-color: #b0b0b0; 
+        border-radius: 10px;
+        border: none;
+        color: white;
+        padding: 10px 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px;
+    }
+    div.tooltip {   
+ 	  position: absolute;
+	   text-align: center;
+	   padding: 2px;
+	   font: 12px sans-serif;
+	   background: white;
+	   border: 0px;
+	   border-radius: 8px;
+	   pointer-events: none;
+    }   
+	
+</style>
+<body>
+<input class="education" type="button" name="edu_change" value="Switch Data">
+<script src="//d3js.org/d3.v4.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script type="text/javascript" src="example.js"></script>
+    <!-- Submission Info -->
+    <!--<h4>Created by "Your Name" </h4>-->
+<a href="https://github.com/alelevy/165_geomapping">https://github.com/alelevy/165_geomapping/</a>
+<p>Alexandra Levy</p>
+<p> Instructor: Suresh Lodha</p>
+<p>CMPS 165: Data Programming for Visualization</p>
+<p>Spring 2018</p>
+<p> This map displays population density and percentage of population that is enrolled full time in school. In order to toggle between these two, press the switch button.</p>
+    <!-- Create a list using <ul> and <li> tag -->   
+ 
+  
+    <!--<h4> Sources: </h4>-->
+      

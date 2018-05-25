@@ -1,0 +1,15 @@
+h1{
+    color: rgb(245, 0, 0);
+}
+body {
+    font-family: sans-serif;
+    height: 700 !important;}
+    
+p {
+    font-size: 15px;
+}
+
+#mauritania path {
+    stroke: #fff;
+    stroke-width: .25px;
+}

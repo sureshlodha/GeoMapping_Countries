@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Internally Displaced Peoples in Burundi</title>
+        <script src="//cdn.jsdelivr.net/bluebird/3.5.0/bluebird.min.js"></script>
+        <script type= "text/javascript" src="https://d3js.org/d3.v4.js"></script>
+        <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.js"></script>
+		<style type="text/css">
+            body {
+                background: #888;
+                font: 12px sans-serif;
+            }
+            
+            svg {
+                font: 12px sans-serif;
+            }
+            
+            #header .title {
+                font-size: 36px;
+                font-weight: 300;
+            }
+            
+            #header .subtitle {
+                font-size: 24px;
+                font-weight: 200;
+            }
+            
+            #selector {
+                position: absolute;
+                top: 150px;
+            }
+            
+            .legendTitle {
+                font: sans-serif;
+                font-size: 18px;
+                font-weight: 500;
+            }
+            
+            .info {
+                position: absolute;
+                top: 180px;
+            }
+            
+            div.info {
+                position: absolute;
+                width: 290px;
+                min-height: 100px;
+                padding: 10px;
+                font: 12px sans-serif;
+/*                background: #;*/
+/*                border: solid 1px #777;*/
+                border-radius: 3px;
+                pointer-events: none;
+            }
+            
+            div.info p {
+                margin-top: 0;
+                margin-bottom: 10px;
+            }
+            
+            div.info h1, div.info h2 {
+                margin-top: 0;
+                margin-bottom: 10px;
+            }
+            
+            div.info h1, div.info h2, div.info h3{
+                font-weight: normal;
+            }
+            
+            .commune {
+                opacity: .8;
+                stroke: black;
+                stroke-width: 0.5px;
+                shape-rendering: crispEdges; /* Make the lines crisp */
+            }
+		</style>
+	</head>
+	<body>
+        <select id="selector">
+            <option value="Ind">Individuals</option>
+            <option value="HH">Households</option>
+        </select>
+		<script type="text/javascript" src="burundi.js"></script>
+        <div>
+            <h4>Put together by Danny Boyd</h4>
+            <ul>
+                <li>
+                    Map geometry data comes from <a href="https://data.humdata.org/dataset/burundi-admin-bounderies"> The Humanitarian Data Exchange </a>
+                </li>
+                <li>
+                    Displaced peoples data comes from the International Organization for Migration's <a href="http://www.globaldtm.info/burundi/">Global Displacement Tracking Matrix</a> via <a href="https://data.humdata.org/dataset/burundi-baseline-assessment-data-iom-dtm">HumData</a>. I've used the 25th round of surveys here.
+                </li>
+            </ul>
+            <h4>This project uses several 3rd-party libraries</h4>
+            <ul>
+                <li><a href="https://www.blurbirdjs.org">Bluebird.js</a> for async promises</li>
+                <li><a href="http://d3-legend.susielu.com">D3 Legend</a> by Susie Lu for the pretty legend</li>
+                <li><a href="https://github.com/d3/d3-scale-chromatic/">d3-scale-chromatic</a> for the color interpolation. It's a standard in v5 but not v4, so it's included in a script tag at the top</li>
+            </ul>
+        </div>
+	</body>
+</html>

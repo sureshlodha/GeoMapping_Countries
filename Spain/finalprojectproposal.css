@@ -1,0 +1,22 @@
+body {
+    padding: 10px;
+}
+
+div {
+    padding: 10px;
+}
+
+.row {
+  display: flex;
+}
+
+.row > div {
+  flex: 1;
+  border: 1px solid grey;
+}
+
+
+h5 {
+    text-align: center;
+    padding: 5px;
+}

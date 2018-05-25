@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<!-- Gradiant: http://bl.ocks.org/pnavarrc/20950640812489f13246 
+	 Data: https://www.statistics.sl/images/StatisticsSL/Documents/final-results_-2015_population_and_housing_census.pdf -->
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Regional Populations of Sierra Leone</title>
+		<script src="https://d3js.org/d3.v4.min.js"></script>
+		<style type="text/css">
+
+
+
+			h1 {
+                font-size: 20px;
+                margin: 0;
+            }
+
+            .stop-left {
+                stop-color: #00cccc;
+            }
+
+            .stop-right {
+                stop-color: #cc0000;
+            }
+
+            .filled {
+                fill: url(#mainGradient);
+            }
+
+            .outlined {
+                fill:   none;
+                stroke: url(#mainGradient);
+                stroke-width: 4;
+            }
+
+            .line {
+				  fill: none;
+				  stroke: steelblue;
+				  stroke-width: 2px;
+			}
+
+			div.tooltip {
+				position: absolute;
+				text-align: center;
+				width: 180px;
+				height: 44px;
+				padding: 2px;
+				font: 12px sans-serif;
+				background: lightsteelblue;
+				border: 0px;
+				border-radius: 8px;
+				pointer-events: none;
+			}
+
+
+		</style>
+	</head>
+
+	<body>
+       <h1>Regional Populations of Sierra Leone</h1>
+
+       <div id="gradientscale"></div>
+       <svg width="1100" height="22">
+       		<text x="0" y="10" font-family="sans-serif" font-size="10px">200,000 People</text>
+       		<text x="285" y="10" font-family="sans-serif" font-size="10px">650,000 People</text>
+       		<text x="570" y="10" font-family="sans-serif" font-size="10px">1,000,000 People</text>
+       	</svg>
+       <script type="text/javascript">
+            // Create the SVG element and set its dimensions.
+            var width  = 1300,
+                height = 6,
+                padding = 0;
+
+            var div = d3.select('#gradientscale'),
+                svg = div.append('svg');
+
+            svg.attr('width', width).attr('height', height);
+
+            // Create the svg:defs element and the main gradient definition.
+            var svgDefs = svg.append('defs');
+
+            var mainGradient = svgDefs.append('linearGradient')
+                .attr('id', 'mainGradient');
+
+            // Create the stops of the main gradient. Each stop will be assigned
+            // a class to style the stop using CSS.
+            mainGradient.append('stop')
+                .attr('class', 'stop-left')
+                .attr('offset', '0');
+
+            mainGradient.append('stop')
+                .attr('class', 'stop-right')
+                .attr('offset', '1');
+
+            // Use the gradient to set the shape fill, via CSS.
+            svg.append('rect')
+                .classed('filled', true)
+                .attr('x', padding)
+                .attr('y', padding)
+                .attr('width', (width / 2) - 1.5 * padding)
+                .attr('height', height - 2 * padding);
+        </script>
+
+       <div id="mapcontainer"></div>
+	   <script type="text/javascript">
+
+
+			//Width and height
+			var w = 730;
+			var h = 670;
+            var padding = [ 20, 10, 50, 100 ];
+
+			//Define map projection
+			var projection = d3.geoAlbers()
+			   .translate([ 2700, -5200 ])
+			   .scale([11000])
+			   .rotate(90);
+
+			//Define path generator
+			var path = d3.geoPath()
+					.projection(projection);
+           
+            //Define quantize scale to sort data values into buckets of color
+			var color = d3.scaleQuantize()
+				.range(["#00cccc", "#00cc66", "#669999", "#993333", "#cc0000"]);
+				//Colors derived from ColorBrewer, by Cynthia Brewer, and included in
+				//https://github.com/d3/d3-scale-chromatic
+
+			//Create SVG
+			var svg = d3.select("#mapcontainer")
+					.append("svg")
+					.attr("width", w)
+					.attr("height", h);
+
+			var div = d3.select("body").append("div")
+			    .attr("class", "tooltip")
+			    .style("opacity", 0);
+           
+           
+            //Load in agriculture data
+			d3.csv("sierraleone.csv", function(data) {
+
+				//Set input domain for color scale
+				color.domain([
+					d3.min(data, function(d) { return d.population; }), 
+					d3.max(data, function(d) { return d.population; })
+				]);
+
+				//Load in GeoJSON data
+				d3.json("slpop.json", function(json) {
+
+					//Merge the ag. data and GeoJSON
+					//Loop through once for each ag. data value
+					for (var i = 0; i < data.length; i++) {
+				
+						//Grab state name
+						var dataState = data[i].district;
+						
+						//Grab data value, and convert from string to float
+						var dataValue = parseFloat(data[i].population);
+						var extraValue = parseFloat(data[i].popden);
+				
+						//Find the corresponding state inside the GeoJSON
+						for (var j = 0; j < json.features.length; j++) {
+						
+							var jsonState = json.features[j].properties.name;
+				
+							if (dataState == jsonState) {
+						
+								//Copy the data value into the JSON
+								json.features[j].properties.value = dataValue;
+								json.features[j].properties.popden = extraValue;
+								
+								//Stop looking through the JSON
+								break;
+								
+							}
+						}		
+					}
+
+					//Bind data and create one path per GeoJSON feature
+					svg.selectAll("path")
+					   .data(json.features)
+					   .enter()
+					   .append("path")
+					   .attr("d", path)
+					   .style("fill", function(d) {
+					   		//Get data value
+					   		var value = d.properties.value;
+					   		
+					   		if (value) {
+					   			//If value exists…
+						   		return color(value);
+					   		} else {
+					   			//If value is undefined…
+						   		return "#ccc";
+					   		}
+					   })
+                       .attr("stroke", "black")
+                       .attr("stroke-width", .75) 
+                       .on("mouseover", function(d) {
+					       div.transition()
+					         .duration(200)
+					         .style("opacity", .9);
+					       div.html("District: " + d.properties.name + "<br/>" + "Population: " + (d.properties.value * 1000000) + " People<br/>" + "Pop. Density: " + d.properties.popden + " Ppl/km^2")
+					         .style("left", (d3.event.pageX) + "px")
+					         .style("top", (d3.event.pageY - 28) + "px");
+					       })
+					   .on("mouseout", function(d) {
+					       div.transition()
+					         .duration(500)
+					         .style("opacity", 0);
+					       });
+			
+				});
+			
+			});
+		
+		</script>
+	</body>
+</html>

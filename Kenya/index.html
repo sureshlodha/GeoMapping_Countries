@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+    <h1 style = "text-align:center"><strong>Kenya Population Density, 2010</strong></h1>
+    <h2 style = "text-align:center"><strong>A Geomapping of Total Population over Area (Sq.Km)</strong></h2>
+</head>
+<style>
+
+svg {
+  font: 10px sans-serif;
+  margin: auto;  
+}
+    
+.tooltip { 
+    position: absolute;
+    width: auto;
+    height: auto; /* auto sets the height of the box*/
+    background-color: aliceblue; /* color of the tooltip */
+    border-radius: 8px; 
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4); 
+    pointer-events: none;
+    padding: 4px;
+}
+
+.caption {
+  font-weight: bold;
+}
+
+.key path {
+  display: none;
+}
+
+.key line {
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.county-border {
+  fill: none;
+  stroke: #000;
+  stroke-opacity: .3;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script>
+    
+var GRANDTOTAL = 38610097;
+
+
+var width = 1100,
+    height = 1000;
+
+var formatNumber = d3.format(",d");
+    
+var path;
+var tooltip;
+
+var color = d3.scale.threshold()
+    .domain([0, 200, 300, 400, 500, 600, 700, 800, 1000])
+    //.domain([1, 10, 50, 100, 500, 1000, 2000, 5000])
+    .range(["#fff7ec", "#fee8c8", "#fdd49e", "#fdbb84", "#fc8d59", "#ef6548", "#d7301f", "#b30000", "#7f0000"]);
+
+// A position encoding for the key only.
+var x = d3.scale.linear()
+    .domain([0, 1000])
+    .range([0, 480]);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom")
+    .tickSize(13)
+    .tickValues(color.domain())
+    .tickFormat(function(d) { return d >= 100 ? formatNumber(d) : null; });
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .style("display", "block")
+    .style("text-align", "center");
+
+var g = svg.append("g")
+    .attr("class", "key")
+    .attr("transform", "translate(440,40)")
+    .style("background-color:", "black");
+
+g.selectAll("rect")
+    .data(color.range().map(function(d, i) {
+      return {
+        x0: i ? x(color.domain()[i - 1]) : x.range()[0],
+        x1: i < color.domain().length ? x(color.domain()[i]) : x.range()[1],
+        z: d
+      };
+    }))
+  .enter().append("rect")
+    .attr("height", 8)
+    .attr("x", function(d) { return d.x0; })
+    .attr("width", function(d) { return d.x1 - d.x0; })
+    .style("fill", function(d) { return d.z; });
+
+g.call(xAxis).append("text")
+    .attr("class", "caption")
+    .attr("y", -6)
+    .text("Population per square mile");
+
+function load(p) {
+    
+    var opt = p;
+    
+    d3.json("kenya.json", function(error, json) {
+    
+    // used https://stackoverflow.com/questions/14492284/center-a-map-in-d3-given-a-geojson-object to center map
+    // create a first guess for the projection
+      var center = d3.geo.centroid(json)
+      var scale  = 150;
+      var offset = [width/2, height/2 + 30];
+      var projection = d3.geo.mercator().scale(scale).center(center)
+          .translate(offset);
+        
+      if (path) {
+          svg.selectAll("path").remove();
+      }
+
+      // create the path
+      path = d3.geo.path().projection(projection);
+
+      // using the path determine the bounds of the current map and use 
+      // these to determine better values for the scale and translation
+      var bounds  = path.bounds(json);
+      var hscale  = scale*width  / (bounds[1][0] - bounds[0][0]);
+      var vscale  = scale*height / (bounds[1][1] - bounds[0][1]);
+      var scale   = (hscale < vscale) ? hscale : vscale;
+      var offset  = [width - (bounds[0][0] + bounds[1][0])/2,
+                        height - (bounds[0][1] + bounds[1][1])/2];
+
+      // new projection
+      projection = d3.geo.mercator().center(center)
+        .scale(scale).translate(offset);
+      path = path.projection(projection);
+
+      // add a rectangle to see the bound of the svg
+      //svg.append("rect").attr('width', width).attr('height', height)
+      //  .style('stroke', 'black').style('fill', 'none').style("text-align", "center");
+
+      svg.selectAll("path").data(json.features).enter().append("path")
+        .attr("d", path)
+        .style("fill", function(d) {return color(Math.ceil(d.properties.POPULATION / d.properties.AREA_KM))})
+        .style("stroke-width", "1")
+        .style("stroke", "black")
+        .on('mouseover', mouseover)
+        .on('mouseout', mouseout)
+    });
+}
+
+// From http://www.mredkj.com/javascript/nfbasic.html, used to format numbers to 'en'
+function addCommas(nStr)
+{
+	nStr += '';
+	x = nStr.split('.');
+	x1 = x[0];
+	x2 = x.length > 1 ? '.' + x[1] : '';
+	var rgx = /(\d+)(\d{3})/;
+	while (rgx.test(x1)) {
+		x1 = x1.replace(rgx, '$1' + ',' + '$2');
+	}
+	return x1 + x2;
+}
+    
+function getOption(datum, op) {
+    switch(op) {
+        case "male": return datum.properties.MALE;
+        case "female": return datum.properties.FEMALE;
+        case "house": return datum.properties.HOUSEHOLDS; 
+        case "pop": return datum.properties.POPULATION;
+        default: return datum.properties.POPULATION;
+    }
+}
+    
+function mouseover(d){
+  d3.select(this).style('opacity', '0.5');
+  tooltip = d3.select("body").append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0);
+  tooltip.transition()
+                .duration(200) 
+                .style("opacity", 1);
+        //adding the data to the tooltip. <br/> is a line break
+            tooltip.html("<u><b>" + d.properties.COUNTY + "</b></u>" + "</br>"
+                         + addCommas(d.properties.AREA_KM) + " Sq. Km of Area" + "</br>"
+                         + addCommas(d.properties.POPULATION) + " Total People" + "</br>"
+                         + addCommas(Math.ceil(Math.round((d.properties.POPULATION / d.properties.AREA_KM) * 100) / 100)) + " People Per Sq. Km" + "</br>"
+                         + addCommas(d.properties.MALE + " Males " + "(" + Math.floor((Math.round((d.properties.MALE / d.properties.POPULATION) * 100) / 100) * 100)) + "% of Total)" + "</br>"
+                         + addCommas(d.properties.FEMALE) + " Females " + "(" + Math.floor((Math.round((d.properties.FEMALE / d.properties.POPULATION) * 100) / 100) * 100) + "% of Total)" + "</br>"
+                         + addCommas(d.properties.HOUSEHOLDS) + " Households " + "</br>")
+                .style("left", (d3.event.pageX + 10) + "px")
+                .style("top", (d3.event.pageY - 28) + "px");
+}
+    
+function mouseout(d){
+    d3.select(this).style('opacity', '1');
+    tooltip.transition()
+                .duration(500)
+                .style("opacity", 0); 
+}
+
+d3.select(self.frameElement).style("height", height + "px");
+    
+load("pop");
+
+</script>
+    <a href="">Github Repo Link</a> <br>
+    <a href="">Github Visualization Link</a> 
+    <p>Data Source:<br> <a href="https://www.knbs.or.ke/category/county-statistics/">Kenya National Bureau of Statistics</a></p>
+     <p>Michael Nguyen<br>Instructor: Suresh Lodha<br>CMPS 165: Data Programming for Visualization<br>Spring 2018</p>
+</body>

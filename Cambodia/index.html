@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>D3: Loading GeoJSON data and generating SVG paths</title>
+		<script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+		<style type="text/css">
+			/* No style rules here yet */	
+            path {
+                stroke: black;
+                stroke-width: 0.5px;
+            }
+            
+            .legend {
+                font-family: sans-serif;
+                font-size: 15px;
+            }
+		</style>
+	</head>
+	<body>
+        <h1>Cambodian District Population, 2008</h1>
+		<script type="text/javascript">
+            
+            //save the domain and range of colorscale for legend
+            var colorRange = ['#ffffe0','#ffbd84','#f47461','#cb2f44','#8b0000'];
+            var colorDomain = [];
+            var colorLabels = ["h", "e", "l", "p", ""];
+
+			//Width and height
+			var w = 500;
+			var h = 500;
+            
+            //Define map projection
+			var projection = d3.geoAlbers()
+                .center([0, 12.5])
+                .rotate([-105, 0])
+                .parallels([10, 20])
+                .scale(5000)
+                .translate([w/2, h/2]);
+
+			//Define path generator
+			var path = d3.geoPath()
+				.projection(projection);
+            
+            var color = d3.scaleThreshold()
+                .range(colorRange);
+            
+			//Create SVG element
+			var svg = d3.select("body")
+				.append("svg")
+				.attr("width", w)
+				.attr("height", h);
+
+            d3.csv("poverty_rate_district.csv", function(data) {
+
+                cMax = d3.max(data, function(d) { return parseInt(d.tot_pop.replace(/,/g, '')); });
+                cMin = d3.min(data, function(d) { return parseInt(d.tot_pop.replace(/,/g, '')); });
+                
+                console.log([cMax])
+                
+                d = (cMax-cMin)/5;
+                
+                colorDomain = [cMin+1*d, cMin+2*d, cMin+3*d, cMin+4*d, cMin+5*d];
+                
+                colorLabels = [0+" - "+Math.floor(colorDomain[0]), Math.floor(colorDomain[0])+" - "+Math.floor(colorDomain[1]),
+                              Math.floor(colorDomain[1])+" - "+Math.floor(colorDomain[2]), Math.floor(colorDomain[2])+" - "+Math.floor(colorDomain[3]),
+                              Math.floor(colorDomain[3])+" - "+Math.floor(colorDomain[4])];
+            
+                /*
+                for(var i = 0; i < colorDomain.length; i++) {
+                    var p1, p2;
+                    if(i = 0) { p1 = 0; }
+                    else { p1 = Math.floor(colorDomain[i-1]); }
+                    p2 = Math.floor(colorDomain[i]);
+                                        
+                    colorLabels[i] = p1 + " - " + p2;
+                }
+                */
+                
+				//Set input domain for color scale
+				color.domain(colorDomain);
+                
+			    //Load in GeoJSON data
+                d3.json("Cambodia_Districts.json", function(json) {
+				    //Merge the ag. data and GeoJSON
+					//Loop through once for each ag. data value
+					for (var i = 0; i < data.length; i++) {
+                        
+                        //District name and population
+						var dataDistrict = data[i].DIS_NAME;
+						var dataValue = parseInt(data[i].tot_pop.replace(/,/g, ''));
+				
+						//Find the corresponding state inside the GeoJSON
+						for (var j = 0; j < json.features.length; j++) {
+							var jsonDistrict = json.features[j].properties.NAME_2;
+				
+							if (dataDistrict == jsonDistrict) {
+								//Copy the data value into the JSON
+								json.features[j].properties.value = dataValue;
+								break;
+							}
+                        }
+					}
+                    svg.selectAll("path")
+					   .data(json.features)
+					   .enter()
+					   .append("path")
+					   .attr("d", path)
+					   .style("fill", function(d) {
+					   		//Get data value
+					   		var value = d.properties.value;
+					   		
+					   		if (value) {
+					   			//If value exists…
+                                return(color(value));
+					   		} else {
+					   			//If value is undefined…
+						   		return "#ccc";
+					   		}
+					   });
+                });
+                   
+            colorDomain.unshift("#ccc");
+            colorLabels.unshift("Unknown");
+                
+            var legend = svg.selectAll("g.legend")
+              .data(colorDomain)
+              .enter().append("g")
+              .attr("class", "legend");
+
+            var ls_w = 20, ls_h = 20;
+
+            legend.append("rect")
+              .attr("x", function(d, i){ return w - (ls_w) - ls_w - 100;})
+              .attr("y", function(d, i){ return h - (i*ls_h) - 2*ls_h;})
+              .attr("width", ls_w)
+              .attr("height", ls_h)
+              .style("fill", function(d, i) {
+                return color(d-1); 
+              })
+              .style("opacity", 0.8);
+
+            legend.append("text")
+              .attr("class", "legend")
+              .attr("x", function(d, i){ return w - (ls_w) - 95;})
+              .attr("y", function(d, i){ return h - (i*ls_h) - ls_h - 4;})
+              .text(function(d, i){ return colorLabels[i]; });
+                
+             
+            })
+			
+		</script>
+        <br>
+        <div>        <a href="https://tccbryant.github.io/CambodiaPop/">Github</a><br>
+            <a href="https://opendevelopmentcambodia.net/dataset/?id=cambodian-population-and-poverty-rate-2015">Population Data</a><br>
+        <a href="https://gadm.org/download_country_v3.html">Country Border Data</a><br><br>Thomas Bryant<br>
+            Instructor: Suresh Lodha<br>
+            CMPS 165: Data Programming for Visualization<br>
+            Spring 2018
+        </div>
+        
+	</body>
+</html>

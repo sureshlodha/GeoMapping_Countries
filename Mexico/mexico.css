@@ -1,0 +1,76 @@
+body {
+  font: 13px sans-serif;
+}
+
+#tooltip {
+    position: absolute;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    background-color: white;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+}
+
+#tooltip.hidden {
+    display: none;
+}
+
+#tooltip p {
+    margin: 0;
+    font-family: sans-serif;
+    font-size: 11px;
+}
+
+svg {
+    display: block;
+    margin: auto;
+    padding-top: 100px;
+}
+
+.color {
+    width: 12px;
+    height: 12px;
+    float: left;
+    margin-right: 6px;
+}
+
+#state {
+    font-weight: bold;
+    font-size: 12px;
+}
+
+#municipality {
+    font-weight: bold;
+}
+
+#legend {
+    font-family: sans-serif;
+    font-size: 12px;
+    background-color: lightgrey;
+    padding: 10px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 210px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+#footer {
+    position: absolute;
+    margin: 10px;
+    bottom: 0;
+    background-color: white;
+}
+
+a {
+    text-decoration: none;
+}

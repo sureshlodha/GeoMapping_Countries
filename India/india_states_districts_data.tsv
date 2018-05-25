@@ -1,0 +1,714 @@
+State	Code	District	Headquarters	Population	Area(km)	Density
+Andaman and Nicobar	NI	Nicobar	Car Nicobar	36819	1841	20
+Andaman and Nicobar	NA	North and Middle Andaman	Mayabunder	105539	3227	32
+Andaman and Nicobar	SA	South Andaman	Port Blair	237586	3181	75
+Andhra Pradesh	AN	Anantapur	Anantapur	4083315	19130	213
+Andhra Pradesh	CH	Chittoor	Chittoor	4170468	15152	275
+Andhra Pradesh	EG	East Godavari	Kakinada	5151549	10807	477
+Andhra Pradesh	GU	Guntur	Guntur	4889230	11391	429
+Andhra Pradesh	CU	Kadapa	Kadapa	2884524	15359	188
+Andhra Pradesh	KR	Krishna	Machilipatnam	4529009	8727	519
+Andhra Pradesh	KU	Kurnool	Kurnool	4046601	17658	229
+Andhra Pradesh	PR	Prakasam	Ongole	3392764	17626	192
+Andhra Pradesh	NE	Sri Potti Sriramulu Nellore	Nellore	2966082	13076	227
+Andhra Pradesh	SR	Srikakulam	Srikakulam	2699471	5837	462
+Andhra Pradesh	VS	Visakhapatnam	Visakhapatnam	4288113	11161	384
+Andhra Pradesh	VZ	Vizianagaram	Vizianagaram	2342868	6539	358
+Andhra Pradesh	WG	West Godavari	Eluru	3934782	7742	508
+Arunachal Pradesh	AJ	Anjaw	Hawai	21089	6190	3
+Arunachal Pradesh	CH	Changlang	Changlang	147951	4662	32
+Arunachal Pradesh	UD	Dibang Valley	Anini	7948	9129	1
+Arunachal Pradesh	EK	East Kameng	Seppa	78413	4134	19
+Arunachal Pradesh	ES	East Siang	Pasighat	99019	3603	27
+Arunachal Pradesh		Kamle	Raga	22256		
+Arunachal Pradesh		Kra Daadi	Jamin			
+Arunachal Pradesh	KK	Kurung Kumey	Koloriang	89717	6040	15
+Arunachal Pradesh	EL	Lohit	Tezu	145538	2402	61
+Arunachal Pradesh	LD	Longding	Longding			
+Arunachal Pradesh	DV	Lower Dibang Valley	Anini	53986	3900	14
+Arunachal Pradesh		Lower Siang	Likabali			
+Arunachal Pradesh	LB	Lower Subansiri	Ziro	82839	3508	24
+Arunachal Pradesh		Namsai	Namsai			
+Arunachal Pradesh	PA	Papum Pare	Yupia	176385	2875	61
+Arunachal Pradesh		Siang	Pangin			
+Arunachal Pradesh	TA	Tawang	Tawang Town	49950	2085	24
+Arunachal Pradesh	TI	Tirap	Khonsa	111997	2362	47
+Arunachal Pradesh	US	Upper Siang	Yingkiong	35289	6188	6
+Arunachal Pradesh	UB	Upper Subansiri	Daporijo	83205	7032	12
+Arunachal Pradesh	WK	West Kameng	Bomdila	87013	7422	12
+Arunachal Pradesh	WS	West Siang	Along	112272	8325	13
+Assam	BK	Baksa	Mushalpur	953773	2008	475
+Assam	BP	Barpeta	Barpeta	1693190	3245	522
+Assam	BS	Bishwanath	Bishwanath Chariali	580000	1100	527
+Assam	BO	Bongaigaon	Bongaigaon	732639	1724	425
+Assam	CA	Cachar	Silchar	1736319	3786	459
+Assam	CD	Charaideo	Sonari			
+Assam	CH	Chirang	Kajalgaon	481818	1975	244
+Assam	DR	Darrang	Mangaldoi	908090	1849	491
+Assam	DM	Dhemaji	Dhemaji	688077	3237	213
+Assam	DU	Dhubri	Dhubri	1948632	2838	687
+Assam	DI	Dibrugarh	Dibrugarh	1327748	3381	393
+Assam	NC	Dima Hasao	Haflong	213529	4888	44
+Assam	GP	Goalpara	Goalpara	1008959	1824	553
+Assam	GG	Golaghat	Golaghat	1058674	3502	302
+Assam	HA	Hailakandi	Hailakandi	659260	1327	497
+Assam	HJ	Hojai	Hojai	347627		
+Assam	JO	Jorhat	Jorhat	1091295	2851	383
+Assam	KU	Kamrup	Amingaon	1517202	3480	436
+Assam	KM	Kamrup Metropolitan	Guwahati	1260419	627	2010
+Assam	KG	Karbi Anglong	Diphu	965280	10434	93
+Assam	KR	Karimganj	Karimganj	1217002	1809	673
+Assam	KJ	Kokrajhar	Kokrajhar	886999	3129	283
+Assam	LA	Lakhimpur	North Lakhimpur	1040644	2277	457
+Assam	MJ	Majuli	Garamur	167304	1250	134
+Assam	MA	Morigaon	Marigaon	957853	1704	562
+Assam	NN	Nagaon	Nagaon	2826006	3831	738
+Assam	NB	Nalbari	Nalbari	769919	1009	763
+Assam	ST	Sivasagar	Sibsagar	1150253	2668	431
+Assam	SM	South Salmara-Mankachar	Hatsingimari			
+Assam	SO	Sonitpur	Tezpur	1925975	5324	362
+Assam	TI	Tinsukia	Tinsukia	1316948	3790	347
+Assam	UD	Udalguri	Udalguri	832769	1676	497
+Assam	WK	West Karbi Anglong	Hamren			
+Bihar	AR	Araria	Araria	2806200	2829	992
+Bihar	AR	Arwal	Arwal	700843	638	1098
+Bihar	AU	Aurangabad	Aurangabad	2511243	3303	760
+Bihar	BA	Banka	Banka	2029339	3018	672
+Bihar	BE	Begusarai	Begusarai	2954367	1917	1540
+Bihar	BG	Bhagalpur	Bhagalpur	3032226	2569	1180
+Bihar	BJ	Bhojpur	Arrah	2720155	2473	1136
+Bihar	BU	Buxar	Buxar	1707643	1624	1003
+Bihar	DA	Darbhanga	Darbhanga	3921971	2278	1721
+Bihar	EC	East Champaran	Motihari	5082868	3969	1281
+Bihar	GA	Gaya	Gaya	4379383	4978	880
+Bihar	GO	Gopalganj	Gopalganj	2558037	2033	1258
+Bihar	JA	Jamui	Jamui	1756078	3099	567
+Bihar	JE	Jehanabad	Jehanabad	1124176	1569	1206
+Bihar	KM	Kaimur	Bhabua	1626900	3363	488
+Bihar	KT	Katihar	Katihar	3068149	3056	1004
+Bihar	KH	Khagaria	Khagaria	1657599	1486	1115
+Bihar	KI	Kishanganj	Kishanganj	1690948	1884	898
+Bihar	LA	Lakhisarai	Lakhisarai	1000717	1229	815
+Bihar	MP	Madhepura	Madhepura	1994618	1787	1116
+Bihar	MB	Madhubani	Madhubani	4476044	3501	1279
+Bihar	MG	Munger	Munger	1359054	1419	958
+Bihar	MZ	Muzaffarpur	Muzaffarpur	4778610	3173	1506
+Bihar	NL	Nalanda	Bihar Sharif	2872523	2354	1220
+Bihar	NW	Nawada	Nawada	2216653	2492	889
+Bihar	PA	Patna	Patna	5772804	3202	1803
+Bihar	PU	Purnia	Purnia	3273127	3228	1014
+Bihar	RO	Rohtas	Sasaram	2962593	3850	763
+Bihar	SH	Saharsa	Saharsa	1897102	1702	1125
+Bihar	SM	Samastipur	Samastipur	4254782	2905	1465
+Bihar	SR	Saran	Chhapra	3943098	2641	1493
+Bihar	SP	Sheikhpura	Sheikhpura	634927	689	922
+Bihar	SO	Sheohar	Sheohar	656916	443	1882
+Bihar	ST	Sitamarhi	Sitamarhi	3419622	2199	1491
+Bihar	SW	Siwan	Siwan	3318176	2219	1495
+Bihar	SU	Supaul	Supaul	2228397	2410	919
+Bihar	VA	Vaishali	Hajipur	3495021	2036	1717
+Bihar	WC	West Champaran	Bettiah	3935042	5229	753
+Chandigarh	CH	Chandigarh	Chandigarh	1054686	114	9252
+Chhattisgarh		Balod	Balod	826165	3527	234
+Chhattisgarh		Baloda Bazar	Baloda Bazar			
+Chhattisgarh		Balrampur	Balrampur	598855	3806	157
+Chhattisgarh	BA	Bastar	Jagdalpur	1302253	4030	87
+Chhattisgarh		Bemetara	Bemetara	197035	2855	69
+Chhattisgarh	BJ	Bijapur	Bijapur	229832	6562	35
+Chhattisgarh	BI	Bilaspur	Bilaspur	1961922	5818	337
+Chhattisgarh	DA	Dantewada	Dantewada	533638	3411	59
+Chhattisgarh	DH	Dhamtari	Dhamtari	799199	2029	394
+Chhattisgarh	DU	Durg	Durg	3343079	8542	391
+Chhattisgarh		Gariaband	Gariaband			
+Chhattisgarh	JC	Janjgir-Champa	Naila Janjgir	1620632	3848	421
+Chhattisgarh	JA	Jashpur	Jashpur Nagar	852043	5825	146
+Chhattisgarh	KW	Kabirdham(formerly Kawardha)	Kawardha	584667	4237	195
+Chhattisgarh	KK	Kanker	Kanker	748593	6513	115
+Chhattisgarh		Kondagaon	Kondagaon			
+Chhattisgarh	KB	Korba	Korba	1206563	6615	183
+Chhattisgarh	KJ	Koriya	Baikunthpur	659039	6578	100
+Chhattisgarh	MA	Mahasamund	Mahasamund	1032275	4779	216
+Chhattisgarh		Mungeli	Mungeli			
+Chhattisgarh	NR	Narayanpur	Narayanpur	140206	6640	20
+Chhattisgarh	RG	Raigarh	Raigarh	1493627	7068	211
+Chhattisgarh	RP	Raipur	Raipur	4062160	13083	310
+Chhattisgarh	RN	Rajnandgaon	Rajnandgaon	1537520	8062	191
+Chhattisgarh	SK	Sukma	Sukma	249000	5636	49
+Chhattisgarh	SJ	Surajpur	Surajpur	660280	6787	150
+Chhattisgarh	SJ	Surguja	Ambikapur	420661	3265	150
+Dadra and Nagar Haveli	DN	Dadra and Nagar Haveli	Silvassa	342853	704	698
+Daman and Diu	DA	Daman	Daman	190855	72	2651
+Daman and Diu	DI	Diu	Diu	52056	40	1301
+Delhi	CD	Central Delhi	Daryaganj	578671	25	23149
+Delhi	ED	East Delhi	Preet Vihar	1707725	440	26683
+Delhi	ND	New Delhi	Connaught Place	133713	22	3820
+Delhi	NO	North Delhi	Sadar Bazaar	883418	59	14973
+Delhi	NE	North East Delhi	Shahdara	2240749	52	37346
+Delhi	NW	North West Delhi	Kanjhawala	3651261	130	8298
+Delhi		Shahdara	Shahdara			
+Delhi	SD	South Delhi	Saket	2733752	250	10935
+Delhi		South East Delhi	Defence Colony			
+Delhi	SW	South West Delhi	Vasant Vihar	2292363	395	5445
+Delhi	WD	West Delhi	Rajouri Garden	2531583	112	19625
+Goa	NG	North Goa	Panaji	817761	1736	471
+Goa	SG	South Goa	Margao	639962	1966	326
+Gujarat	AH	Ahmedabad	Ahmedabad	7208200	8707	890
+Gujarat	AM	Amreli	Amreli	1513614	6760	205
+Gujarat	AN	Anand	Anand	2090276	2942	711
+Gujarat	AR	Aravalli	Modasa	1051746	3217	327
+Gujarat	BK	Banaskantha	Palanpur	3116045	12703	290
+Gujarat	BR	Bharuch	Bharuch	1550822	6524	238
+Gujarat	BV	Bhavnagar	Bhavnagar	2877961	11155	288
+Gujarat		Botad	Botad	656005	2564	256
+Gujarat		Chhota Udaipur	Chhota Udaipur	1071831	3237	331
+Gujarat	DA	Dahod	Dahod	2126558	3642	582
+Gujarat	DG	Dang	Ahwa	226769	1764	129
+Gujarat		Devbhoomi Dwarka	Khambhalia	752484	5684	132
+Gujarat	GA	Gandhinagar	Gandhinagar	1387478	649	660
+Gujarat		Gir Somnath	Veraval	1217477	3754	324
+Gujarat	JA	Jamnagar	Jamnagar	2159130	14125	153
+Gujarat	JU	Junagadh	Junagadh	2742291	8839	310
+Gujarat	KH	Kheda	Nadiad	2298934	4215	541
+Gujarat	KA	Kutch	Bhuj	2090313	45652	46
+Gujarat	MH	Mahisagar	Lunavada	994624	2500	398
+Gujarat	MA	Mehsana	Mehsana	2027727	4386	462
+Gujarat		Morbi	Morbi	960329	4871	197
+Gujarat	NR	Narmada	Rajpipla	590379	2749	214
+Gujarat	NV	Navsari	Navsari	1330711	2211	602
+Gujarat	PM	Panchmahal	Godhra	2388267	5219	458
+Gujarat	PA	Patan	Patan	1342746	5738	234
+Gujarat	PO	Porbandar	Porbandar	586062	2294	255
+Gujarat	RA	Rajkot	Rajkot	3157676	11203	282
+Gujarat	SK	Sabarkantha	Himatnagar	2427346	7390	328
+Gujarat	ST	Surat	Surat	4996391	4327	653
+Gujarat	SN	Surendranagar	Surendranagar	1755873	10489	167
+Gujarat	TA	Tapi	Vyara	806489	3435	249
+Gujarat	VD	Vadodara	Vadodara	3639775	7794	467
+Gujarat	VL	Valsad	Valsad	1703068	3034	561
+Haryana	AM	Ambala	Ambala	1136784	1569	722
+Haryana	BH	Bhiwani	Bhiwani	1629109	5140	341
+Haryana		Charkhi Dadri	Charkhi Dadri			
+Haryana	FR	Faridabad	Faridabad	1798954	783	2298
+Haryana	FT	Fatehabad	Fatehabad	941522	2538	371
+Haryana	GU	Gurgaon	Gurgaon	1514085	2760	1241
+Haryana	HI	Hissar	Hissar	1742815	3788	438
+Haryana	JH	Jhajjar	Jhajjar	956907	1868	522
+Haryana	JI	Jind	Jind	1332042	2702	493
+Haryana	KT	Kaithal	Kaithal	1072861	2799	467
+Haryana	KR	Karnal	Karnal	1506323	2471	598
+Haryana	KU	Kurukshetra	Kurukshetra	964231	1530	630
+Haryana	MA	Mahendragarh	Narnaul	921680	1900	485
+Haryana	MW	Nuh	Nuh	1089406	1765	729
+Haryana	PW	Palwal	Palwal	1040493	1367	761
+Haryana	PK	Panchkula	Panchkula	558890	816	622
+Haryana	PP	Panipat	Panipat	1202811	1250	949
+Haryana	RE	Rewari	Rewari	896129	1559	562
+Haryana	RO	Rohtak	Rohtak	1058683	1668	607
+Haryana	SI	Sirsa	Sirsa	1295114	4276	303
+Haryana	SNP	Sonipat	Sonipat	1480080	2260	697
+Haryana	YN	Yamuna Nagar	Yamuna Nagar	1214162	1756	687
+Himachal Pradesh	BI	Bilaspur	Bilaspur	382056	1167	327
+Himachal Pradesh	CH	Chamba	Chamba	518844	6528	80
+Himachal Pradesh	HA	Hamirpur	Hamirpur	454293	1118	406
+Himachal Pradesh	KA	Kangra	Dharamshala	1507223	5739	263
+Himachal Pradesh	KI	Kinnaur	Reckong Peo	84298	6401	13
+Himachal Pradesh	KU	Kullu	Kullu	437474	5503	79
+Himachal Pradesh	LS	Lahaul and Spiti	Keylong	31528	13835	2
+Himachal Pradesh	MA	Mandi	Mandi	999518	3950	253
+Himachal Pradesh	SH	Shimla	Shimla	813384	5131	159
+Himachal Pradesh	SI	Sirmaur	Nahan	530164	2825	188
+Himachal Pradesh	SO	Solan	Solan	576670	1936	298
+Himachal Pradesh	UNA	Una	Una	521057	1540	328
+Jammu and Kashmir	AN	Anantnag	Anantnag	1070144	2853	375
+Jammu and Kashmir	BPR	Bandipora	Bandipore	385099	3010	128
+Jammu and Kashmir	BR	Baramulla	Baramulla	1015503	3329	305
+Jammu and Kashmir	BD	Badgam	Badgam	735753	1406	537
+Jammu and Kashmir	DO	Doda	Doda	409576	11691	79
+Jammu and Kashmir	GB	Ganderbal	Ganderbal	297003	258	1151
+Jammu and Kashmir	JA	Jammu	Jammu	1526406	3097	596
+Jammu and Kashmir	KR	Kargil	Kargil	143388	14036	10
+Jammu and Kashmir	KT	Kathua	Kathua	615711	2651	232
+Jammu and Kashmir	KW	Kishtwar	Kishtwar	230696	7737	30
+Jammu and Kashmir	KG	Kulgam	Kulgam	422786	457	925
+Jammu and Kashmir	KU	Kupwara	Kupwara	875564	2379	368
+Jammu and Kashmir	LE	Leh	Leh	147104	45110	3
+Jammu and Kashmir	PO	Poonch	Poonch	476820	1674	285
+Jammu and Kashmir	PU	Pulwama	Pulwama	570060	1398	598
+Jammu and Kashmir	RA	Rajouri	Rajouri	619266	2630	235
+Jammu and Kashmir	RB	Ramban	Ramban	283313	1330	213
+Jammu and Kashmir	RS	Reasi	Reasi	314714	1710	184
+Jammu and Kashmir	SB	Samba	Samba	318611	913	318
+Jammu and Kashmir	SH	Shopian	Shupiyan	265960	312	852
+Jammu and Kashmir	SR	Srinagar	Srinagar	1269751	2228	703
+Jammu and Kashmir	UD	Udhampur	Udhampur	555357	4550	211
+Jharkhand	BO	Bokaro	Bokaro	2061918	2861	716
+Jharkhand	CH	Chatra	Chatra	1042304	3700	275
+Jharkhand	DE	Deoghar	Deoghar	1491879	2479	602
+Jharkhand	DH	Dhanbad	Dhanbad	2682662	2075	1284
+Jharkhand	DU	Dumka	Dumka	1321096	4404	300
+Jharkhand	ES	East Singhbhum	Jamshedpur	2291032	3533	648
+Jharkhand	GA	Garhwa	Garhwa	1322387	4064	327
+Jharkhand	GI	Giridih	Giridih	2445203	4887	497
+Jharkhand	GO	Godda	Godda	1311382	2110	622
+Jharkhand	GU	Gumla	Gumla	1025656	5327	193
+Jharkhand	HA	Hazaribag	Hazaribag	1734005	4302	403
+Jharkhand	JA	Jamtara	Jamtara	790207	1802	439
+Jharkhand	KH	Khunti	Khunti	530299	2467	215
+Jharkhand	KO	Koderma	Koderma	717169	1312	427
+Jharkhand	LA	Latehar	Latehar	725673	3630	200
+Jharkhand	LO	Lohardaga	Lohardaga	461738	1494	310
+Jharkhand	PK	Pakur	Pakur	899200	1805	498
+Jharkhand	PL	Palamu	Daltonganj	1936319	5082	381
+Jharkhand	RM	Ramgarh	Ramgarh	949159	1212	684
+Jharkhand	RA	Ranchi	Ranchi	2912022	7974	557
+Jharkhand	SA	Sahibganj	Sahebganj	1150038	1599	719
+Jharkhand	SK	Seraikela Kharsawan	Seraikela	1063458	2725	390
+Jharkhand	SI	Simdega	Simdega	599813	3750	160
+Jharkhand	WS	West Singhbhum	Chaibasa	1501619	7186	209
+Karnataka	BK	Bagalkot	Bagalkot	1890826	6583	288
+Karnataka	BL	Ballari	Ballari	2532383	8439	300
+Karnataka	BG	Belagavi	Belagavi	4778439	13415	356
+Karnataka	BR	Bangalore Rural	Bengaluru	987257	2239	441
+Karnataka	BN	Bangalore	Bengaluru	9588910	2190	4378
+Karnataka	BD	Bidar	Bidar	1700018	5448	312
+Karnataka	CJ	Chamarajnagar	Chamarajanagar	1020962	5102	200
+Karnataka	CK	Chikkaballapur	Chikkaballapur	1254377	4208	298
+Karnataka	CK	Chikkamagaluru	Chikmagalur	1137753	7201	158
+Karnataka	CT	Chitradurga	Chitradurga	1660378	8437	197
+Karnataka	DK	Dakshina Kannada	Mangaluru	2083625	4559	457
+Karnataka	DA	Davanagere	Davangere	1946905	5926	329
+Karnataka	DH	Dharwad	Dharwad	1846993	4265	434
+Karnataka	GA	Gadag	Gadag-Betageri	1065235	4651	229
+Karnataka	HS	Hassan	Hassan	1776221	6814	261
+Karnataka	HV	Haveri	Haveri	1598506	4825	331
+Karnataka	GU	Kalaburagi	Kalaburagi	2564892	10990	233
+Karnataka	KD	Kodagu	Madikeri	554762	4102	135
+Karnataka	KL	Kolar	Kolar	1540231	4012	384
+Karnataka	KP	Koppal	Koppal	1391292	5565	250
+Karnataka	MA	Mandya	Mandya	1808680	4961	365
+Karnataka	MY	Mysuru	Mysuru	2994744	6854	437
+Karnataka	RA	Raichur	Raichur	1924773	6839	228
+Karnataka	RM	Ramanagara	Ramanagara	1082739	3573	303
+Karnataka	SH	Shivamogga	Shivamogga	1755512	8495	207
+Karnataka	TU	Tumakuru	Tumakuru	2681449	10598	253
+Karnataka	UD	Udupi	Udupi	1177908	3879	304
+Karnataka	UK	Uttara Kannada	Karwar	1353299	10291	132
+Karnataka	BJ	Vijayapura	Vijayapura	2175102	10517	207
+Karnataka	YG	Yadgir	Yadgir	1172985	5225	224
+Kerala	AL	Alappuzha	Alappuzha	2121943	1414	1501
+Kerala	ER	Ernakulam	Kakkanad	3279860	2951	1069
+Kerala	ID	Idukki	Painavu	1107453	4479	254
+Kerala	KN	Kannur	Kannur	2525637	2966	852
+Kerala	KS	Kasaragod	Kasaragod	1302600	1992	654
+Kerala	KL	Kollam	Kollam	2629703	2498	1056
+Kerala	KT	Kottayam	Kottayam	1979384	2203	896
+Kerala	KZ	Kozhikode	Kozhikode	3089543	2345	1318
+Kerala	MA	Malappuram	Malappuram	4110956	3550	1058
+Kerala	PL	Palakkad	Palakkad	2810892	4480	627
+Kerala	PT	Pathanamthitta	Pathanamthitta	1195537	2462	453
+Kerala	TS	Thrissur	Thrissur	3110327	3032	1026
+Kerala	TV	Thiruvananthapuram	Thiruvananthapuram	3307284	2192	1509
+Kerala	WA	Wayanad	Kalpetta	816558	2131	383
+Lakshadweep	LD	Lakshadweep	Kavaratti	64429	32	2013
+Madhya Pradesh	AG	Agar Malwa	Agar			
+Madhya Pradesh	AL	Alirajpur	Alirajpur	728677	3182	229
+Madhya Pradesh	AP	Anuppur	Anuppur	749521	3747	200
+Madhya Pradesh	AS	Ashok Nagar	Ashok Nagar	844979	4674	181
+Madhya Pradesh	BL	Balaghat	Balaghat	1701156	9229	184
+Madhya Pradesh	BR	Barwani	Barwani	1385659	5432	256
+Madhya Pradesh	BE	Betul	Betul	1575247	10043	157
+Madhya Pradesh	BD	Bhind	Bhind	1703562	4459	382
+Madhya Pradesh	BP	Bhopal	Bhopal	2368145	2772	854
+Madhya Pradesh	BU	Burhanpur	Burhanpur	756993	3427	221
+Madhya Pradesh	CT	Chhatarpur	Chhatarpur	1762857	8687	203
+Madhya Pradesh	CN	Chhindwara	Chhindwara	2090306	11815	177
+Madhya Pradesh	DM	Damoh	Damoh	1263703	7306	173
+Madhya Pradesh	DT	Datia	Datia	786375	2694	292
+Madhya Pradesh	DE	Dewas	Dewas	1563107	7020	223
+Madhya Pradesh	DH	Dhar	Dhar	2184672	8153	268
+Madhya Pradesh	DI	Dindori	Dindori	704218	7427	94
+Madhya Pradesh	GU	Guna	Guna	1240938	6485	194
+Madhya Pradesh	GW	Gwalior	Gwalior	2030543	5465	445
+Madhya Pradesh	HA	Harda	Harda	570302	3339	171
+Madhya Pradesh	HO	Hoshangabad	Hoshangabad	1240975	6698	185
+Madhya Pradesh	IN	Indore	Indore	3272335	3898	839
+Madhya Pradesh	JA	Jabalpur	Jabalpur	2460714	5210	472
+Madhya Pradesh	JH	Jhabua	Jhabua	1024091	6782	285
+Madhya Pradesh	KA	Katni	Katni	1291684	4947	261
+Madhya Pradesh	EN	East Nimar	Khandwa	1309443	7349	178
+Madhya Pradesh	WN	West Nimar	Khargone	1872413	8010	233
+Madhya Pradesh	ML	Mandla	Mandla	1053522	5805	182
+Madhya Pradesh	MS	Mandsaur	Mandsaur	1339832	5530	242
+Madhya Pradesh	MO	Morena	Morena	1965137	4991	394
+Madhya Pradesh	NA	Narsinghpur	Narsinghpur	1092141	5133	213
+Madhya Pradesh	NE	Neemuch	Neemuch	825958	4267	194
+Madhya Pradesh	PA	Panna	Panna	1016028	7135	142
+Madhya Pradesh	RS	Raisen	Raisen	1331699	8466	157
+Madhya Pradesh	RG	Rajgarh	Rajgarh	1546541	6143	251
+Madhya Pradesh	RL	Ratlam	Ratlam	1454483	4861	299
+Madhya Pradesh	RE	Rewa	Rewa	2363744	6314	374
+Madhya Pradesh	SG	Sagar	Sagar	2378295	10252	272
+Madhya Pradesh	ST	Satna	Satna	2228619	7502	297
+Madhya Pradesh	SR	Sehore	Sehore	1311008	6578	199
+Madhya Pradesh	SO	Seoni	Seoni	1378876	8758	157
+Madhya Pradesh	SH	Shahdol	Shahdol	1064989	6205	172
+Madhya Pradesh	SJ	Shajapur	Shajapur	1512353	6196	244
+Madhya Pradesh	SP	Sheopur	Sheopur	687952	6585	104
+Madhya Pradesh	SV	Shivpuri	Shivpuri	1725818	10290	168
+Madhya Pradesh	SI	Sidhi	Sidhi	1126515	10520	232
+Madhya Pradesh	SN	Singrauli	Waidhan	1178132	5672	208
+Madhya Pradesh	TI	Tikamgarh	Tikamgarh	1444920	5055	286
+Madhya Pradesh	UJ	Ujjain	Ujjain	1986864	6091	356
+Madhya Pradesh	UM	Umaria	Umaria	643579	4062	158
+Madhya Pradesh	VI	Vidisha	Vidisha	1458212	7362	198
+Maharashtra	AH	Ahmednagar	Ahmednagar	4543083	17048	266
+Maharashtra	AK	Akola	Akola	1818617	5429	321
+Maharashtra	AM	Amravati	Amravati	2887826	12235	237
+Maharashtra	AU	Aurangabad	Aurangabad	3695928	10107	365
+Maharashtra	BI	Beed	Beed	2585962	10693	242
+Maharashtra	BH	Bhandara	Bhandara	1198810	3890	293
+Maharashtra	BU	Buldhana	Buldhana	2588039	9661	268
+Maharashtra	CH	Chandrapur	Chandrapur	2194262	11443	192
+Maharashtra	DH	Dhule	Dhule	2048781	8095	285
+Maharashtra	GA	Gadchiroli	Gadchiroli	1071795	14412	74
+Maharashtra	GO	Gondia	Gondia	1322331	5431	253
+Maharashtra	HI	Hingoli	Hingoli	1178973	4526	244
+Maharashtra	JG	Jalgaon	Jalgaon	4224442	11765	359
+Maharashtra	JN	Jalna	Jalna	1958483	7718	255
+Maharashtra	KO	Kolhapur	Kolhapur	3874015	7685	504
+Maharashtra	LA	Latur	Latur	2455543	7157	343
+Maharashtra	MC	Mumbai City		3145966	69	20038
+Maharashtra	MU	Mumbai suburban	Bandra (East)	9332481	369	20925
+Maharashtra	ND	Nanded	Nanded	3356566	10528	319
+Maharashtra	NB	Nandurbar	Nandurbar	1646177	5055	276
+Maharashtra	NG	Nagpur	Nagpur	4653171	9892	470
+Maharashtra	NS	Nashik	Nashik	6109052	15539	393
+Maharashtra	OS	Osmanabad	Osmanabad	1660311	7569	219
+Maharashtra	-	Palghar	Palghar			
+Maharashtra	PA	Parbhani	Parbhani	1835982	6511	295
+Maharashtra	PU	Pune	Pune	9426959	15643	603
+Maharashtra	RG	Raigad	Alibag	2635394	7152	368
+Maharashtra	RT	Ratnagiri	Ratnagiri	1612672	8208	196
+Maharashtra	SN	Sangli	Sangli	2820575	8572	329
+Maharashtra	ST	Satara	Satara	3003922	10475	287
+Maharashtra	SI	Sindhudurg	Oros	848868	5207	163
+Maharashtra	SO	Solapur	Solapur	4315527	14895	290
+Maharashtra	TH	Thane	Thane	11060148	9558	1157
+Maharashtra	WR	Wardha	Wardha	1296157	6309	205
+Maharashtra	WS	Washim	Washim	1196714	5155	244
+Maharashtra	YA	Yavatmal	Yavatmal	2775457	13582	204
+Manipur	BI	Bishnupur	Bishnupur	240363	496	485
+Manipur	CC	Churachandpur	Churachandpur	271274	4574	59
+Manipur	CD	Chandel	Chandel	144028	3317	43
+Manipur	EI	Imphal East	Porompat	452661	710	638
+Manipur	SE	Senapati	Senapati	354972	3269	109
+Manipur	TA	Tamenglong	Tamenglong	140143	4391	32
+Manipur	TH	Thoubal	Thoubal	420517	514	818
+Manipur	UK	Ukhrul	Ukhrul	183115	4547	40
+Manipur	WI	Imphal West	Lamphelpat	514683	519	992
+Meghalaya	EG	East Garo Hills	Williamnagar	317618	2603	121
+Meghalaya	EK	East Khasi Hills	Shillong	824059	2752	292
+Meghalaya		East Jaintia Hills	Khliehriat	122436	2115	
+Meghalaya		North Garo Hills	Resubelpara	118325	1113	
+Meghalaya	RB	Ri Bhoi	Nongpoh	258380	2378	109
+Meghalaya	SG	South Garo Hills	Baghmara	142574	1850	77
+Meghalaya		South West Garo Hills	Ampati			
+Meghalaya		South West Khasi Hills	Mawkyrwat	110152	1341	
+Meghalaya	WG	West Jaintia Hills	Jowai	270352	1693	
+Meghalaya	WG	West Garo Hills	Tura	642923	3714	173
+Meghalaya	WK	West Khasi Hills	Nongstoin	385601	5247	73
+Mizoram	AI	Aizawl	Aizawl	404054	3577	113
+Mizoram	CH	Champhai	Champhai	125370	3168	39
+Mizoram	KO	Kolasib	Kolasib	83054	1386	60
+Mizoram	LA	Lawngtlai	Lawngtlai	117444	2519	46
+Mizoram	LU	Lunglei	Lunglei	154094	4572	34
+Mizoram	MA	Mamit	Mamit	85757	2967	28
+Mizoram	SA	Saiha	Saiha	56366	1414	40
+Mizoram	SE	Serchhip	Serchhip	64875	1424	46
+Nagaland	DI	Dimapur	Dimapur	379769	926	410
+Nagaland	KI	Kiphire	Kiphire	74033	1255	66
+Nagaland	KO	Kohima	Kohima	270063	1041	213
+Nagaland	LO	Longleng	Longleng	50593	885	89
+Nagaland	MK	Mokokchung	Mokokchung	193171	1615	120
+Nagaland	MN	Mon	Mon	259604	1786	145
+Nagaland	PE	Peren	Peren	163294	2300	55
+Nagaland	PH	Phek	Phek	163294	2026	81
+Nagaland	TU	Tuensang	Tuensang	414801	4228	98
+Nagaland	WO	Wokha	Wokha	166239	1628	120
+Nagaland	ZU	Zunheboto	Zunheboto	141014	1255	112
+Odisha	AN	Angul	Angul	1271703	6347	199
+Odisha	BD	Bauda	Boudh	439917	4289	142
+Odisha	BH	Bhadrak	Bhadrak	1506522	2788	601
+Odisha	BL	Balangir	Balangir	1648574	6552	251
+Odisha	BR	Bargarh	Bargarh	1478833	5832	253
+Odisha	BW	Balasore	Balasore	2317419	3706	609
+Odisha	CU	Cuttack	Cuttack	2618708	3915	666
+Odisha	DE	Debagarh(Deogarh)	Debagarh	312164	2781	106
+Odisha	DH	Dhenkanal	Dhenkanal	1192948	4597	268
+Odisha	GN	Ganjam	Chhatrapur	3520151	8033	429
+Odisha	GP	Gajapati	Paralakhemundi	575880	3056	133
+Odisha	JH	Jharsuguda	Jharsuguda	579499	2202	274
+Odisha	JP	Jajpur	Panikoili	1826275	2885	630
+Odisha	JS	Jagatsinghpur	Jagatsinghpur	1136604	1759	681
+Odisha	KH	Khordha	Khordha	2246341	2888	799
+Odisha	KJ	Kendujhar(Keonjhar)	Kendujhar	1802777	8336	217
+Odisha	KL	Kalahandi	Bhawanipatna	1573054	8197	199
+Odisha	KN	Kandhamal	Phulbani	731952	6004	91
+Odisha	KO	Koraput	Koraput	1376934	8534	156
+Odisha	KP	Kendrapara	Kendrapara	1439891	2546	545
+Odisha	ML	Malkangiri	Malkangiri	612727	6115	106
+Odisha	MY	Mayurbhanj	Baripada	2513895	10418	241
+Odisha	NB	Nabarangpur	Nabarangpur	1218762	5135	230
+Odisha	NU	Nuapada	Nuapada	606490	3408	157
+Odisha	NY	Nayagarh	Nayagarh	962215	3954	247
+Odisha	PU	Puri	Puri	1697983	3055	488
+Odisha	RA	Rayagada	Rayagada	961959	7585	136
+Odisha	SA	Sambalpur	Sambalpur	1044410	6702	158
+Odisha	SO	Subarnapur	Subarnapur	652107	2284	279
+Odisha	SU	Sundargarh	Sundargarh	2080664	9942	214
+Puducherry	KA	Karaikal	Karaikal	200314	160	1252
+Puducherry	MA	Mahe	Mahé	41934	9	4659
+Puducherry	PO	Pondicherry	Pondicherry	946600	293	3231
+Puducherry	YA	Yanam	Yanam	55616	17	3272
+Punjab	AM	Amritsar	Amritsar	2490891	2673	932
+Punjab	BNL	Barnala	Barnala	596294	1423	419
+Punjab	BA	Bathinda	Bathinda	1388859	3355	414
+Punjab	FI	Firozpur	Firozpur	2026831	5334	380
+Punjab	FR	Faridkot	Faridkot	618008	1472	424
+Punjab	FT	Fatehgarh Sahib	Fatehgarh Sahib	599814	1180	508
+Punjab	FA	Fazilka	Fazilka			
+Punjab	GU	Gurdaspur	Gurdaspur	2299026	3542	649
+Punjab	HO	Hoshiarpur	Hoshiarpur	1582793	3397	466
+Punjab	JA	Jalandhar	Jalandhar	2181753	2625	831
+Punjab	KA	Kapurthala	Kapurthala	817668	1646	501
+Punjab	LU	Ludhiana	Ludhiana	3487882	3744	975
+Punjab	MA	Mansa	Mansa	768808	2174	350
+Punjab	MO	Moga	Moga	992289	2235	444
+Punjab	MU	Sri Muktsar Sahib	Sri Muktsar Sahib	902702	2596	348
+Punjab	PA	Pathankot	Pathankot	1998464		398
+Punjab	PA	Patiala	Patiala	2892282	3175	596
+Punjab	RU	Rupnagar	Rupnagar	683349	1400	488
+Punjab	SAS	Sahibzada Ajit Singh Nagar	Mohali	986147	1188	830
+Punjab	SA	Sangrur	Sangrur	1654408	3685	449
+Punjab	PB	Shahid Bhagat Singh Nagar	Nawanshahr	614362	1283	479
+Punjab	TT	Tarn Taran	Tarn Taran Sahib	1120070	2414	464
+Rajasthan	AJ	Ajmer	Ajmer	2584913	8481	305
+Rajasthan	AL	Alwar	Alwar	3671999	8380	438
+Rajasthan	BI	Bikaner	Bikaner	2367745	27244	78
+Rajasthan	BM	Barmer	Barmer	2604453	28387	92
+Rajasthan	BN	Banswara	Banswara	1798194	5037	399
+Rajasthan	BP	Bharatpur	Bharatpur	2549121	5066	503
+Rajasthan	BR	Baran	Baran	1223921	6955	175
+Rajasthan	BU	Bundi	Bundi	1113725	5550	193
+Rajasthan	BW	Bhilwara	Bhilwara	2410459	10455	230
+Rajasthan	CR	Churu	Churu	2041172	16830	148
+Rajasthan	CT	Chittorgarh	Chittorgarh	1544392	10856	193
+Rajasthan	DA	Dausa	Dausa	1637226	3429	476
+Rajasthan	DH	Dholpur	Dholpur	1207293	3084	398
+Rajasthan	DU	Dungarpur	Dungarpur	1388906	3771	368
+Rajasthan	GA	Ganganagar	Ganganagar	1969520	10990	179
+Rajasthan	HA	Hanumangarh	Hanumangarh	1779650	9670	184
+Rajasthan	JJ	Jhunjhunu	Jhunjhunu	2139658	5928	361
+Rajasthan	JL	Jalore	Jalore	1830151	10640	172
+Rajasthan	JO	Jodhpur	Jodhpur	3685681	22850	161
+Rajasthan	JP	Jaipur	Jaipur	6663971	11152	598
+Rajasthan	JS	Jaisalmer	Jaisalmer	672008	38401	17
+Rajasthan	JW	Jhalawar	Jhalawar	1411327	6219	227
+Rajasthan	KA	Karauli	Karauli	1458459	5530	264
+Rajasthan	KO	Kota	Kota	1950491	5446	374
+Rajasthan	NA	Nagaur	Nagaur	3309234	17718	187
+Rajasthan	PA	Pali	Pali	2038533	12387	165
+Rajasthan	PG	Pratapgarh	Pratapgarh	868231	4112	211
+Rajasthan	RA	Rajsamand	Rajsamand	1158283	3853	302
+Rajasthan	SK	Sikar	Sikar	2677737	7732	346
+Rajasthan	SM	Sawai Madhopur	Sawai Madhopur	1338114	4500	257
+Rajasthan	SR	Sirohi	Sirohi	1037185	5136	202
+Rajasthan	TO	Tonk	Tonk	1421711	7194	198
+Rajasthan	UD	Udaipur	Udaipur	3067549	13430	242
+Sikkim	ES	East Sikkim	Gangtok	281293	954	295
+Sikkim	NS	North Sikkim	Mangan	43354	4226	10
+Sikkim	SS	South Sikkim	Namchi	146742	750	196
+Sikkim	WS	West Sikkim	Geyzing	136299	1166	117
+Tamil Nadu	AY	Ariyalur	Ariyalur	752481	3208	387
+Tamil Nadu	CH	Chennai	Chennai (Madras)	4681087	174	26903
+Tamil Nadu	CO	Coimbatore	Coimbatore	3472578	7469	748
+Tamil Nadu	CU	Cuddalore	Cuddalore	2600880	3999	702
+Tamil Nadu	DH	Dharmapuri	Dharmapuri	1502900	4532	332
+Tamil Nadu	DI	Dindigul	Dindigul	2161367	6058	357
+Tamil Nadu	ER	Erode	Erode	2259608	5714	397
+Tamil Nadu	KC	Kanchipuram	Kanchipuram	3990897	4433	927
+Tamil Nadu	KK	Kanyakumari	Nagercoil	2863178	1685	1106
+Tamil Nadu	KA	Karur	Karur	1076588	2901	371
+Tamil Nadu	KR	Krishnagiri	Krishnagiri	1883731	5086	370
+Tamil Nadu	MA	Madurai	Madurai	3991038	3676	823
+Tamil Nadu	NG	Nagapattinam	Nagapattinam	1614069	2716	668
+Tamil Nadu	NI	Nilgiris	Udagamandalam (Ootacamund/Ooty)	735071	2549	288
+Tamil Nadu	NM	Namakkal	Namakkal	1721179	3429	506
+Tamil Nadu	PE	Perambalur	Perambalur	564511	1752	323
+Tamil Nadu	PU	Pudukkottai	Pudukkottai	1918725	4651	348
+Tamil Nadu	RA	Ramanathapuram	Ramanathapuram	1337560	4123	320
+Tamil Nadu	SA	Salem	Salem	3480008	5245	663
+Tamil Nadu	SI	Sivaganga	Sivaganga	1341250	4086	324
+Tamil Nadu	TP	Tirupur	Tirupur	2471222	5106	476
+Tamil Nadu	TC	Tiruchirappalli	Tiruchirappalli	2713858	4407	602
+Tamil Nadu	TH	Theni	Theni	1243684	3066	433
+Tamil Nadu	TI	Tirunelveli	Tirunelveli	3072880	6703	458
+Tamil Nadu	TJ	Thanjavur	Thanjavur	2402781	3397	691
+Tamil Nadu	TK	Thoothukudi	Thoothukudi(Tuticorin)	1738376	4594	378
+Tamil Nadu	TL	Tiruvallur	Tiruvallur	3725697	3424	1049
+Tamil Nadu	TR	Tiruvarur	Tiruvarur	1268094	2377	533
+Tamil Nadu	TV	Tiruvannamalai	Tiruvannaamalai	2468965	6191	399
+Tamil Nadu	VE	Vellore	Vellore	3928106	6077	646
+Tamil Nadu	VL	Viluppuram	Viluppuram	3463284	7190	462
+Tamil Nadu	VR	Virudhunagar	Virudhunagar	1943309	3446	454
+Telangana	AD	Adilabad	Adilabad	708952	4185.97	171
+Telangana		Komaram Bheem Asifabad	Asifabad	515835	4300.16	106
+Telangana		Bhadradri Kothagudem	Kothagudem	1304811	8951.00	143
+Telangana	HY	Hyderabad	Hyderabad	3441992	4325.29	18172
+Telangana		Jagtial	Jagtial	983414	3043.23	407
+Telangana		Jangaon	Jangaon	582457	2187.50	259
+Telangana		Jayashankar Bhupalpally	Bhupalpalle	712257	6361.70	115
+Telangana		Jogulamba Gadwal	Gadwal	664971	2928.00	208
+Telangana		Kamareddy	Kamareddy	972625	3651.00	266
+Telangana	KA	Karimnagar	Karimnagar	1016063	2379.07	473
+Telangana	KH	Khammam	Khammam	1401639	4453.00	321
+Telangana		Mahabubabad	Mahabubabad	770170	2876.70	269
+Telangana	MA	Mahbubnagar	Mahbubnagar	1318110	4037.00	281
+Telangana		Mancherial	Mancherial	807037	4056.36	201
+Telangana	ME	Medak	Medak	767428	2740.89	275
+Telangana		Medchal	Malkajgiri	2542203	5005.98	2251
+Telangana	NA	Nalgonda	Nalgonda	1631399	2449.79	227
+Telangana		Nagarkurnool	Nagarkurnool	893308	6545.00	124
+Telangana		Nirmal	Nirmal	709415	3562.51	185
+Telangana	NI	Nizamabad	Nizamabad	1534428	4153.00	366
+Telangana		Peddapalli	Peddapalle	795332	4614.74	356
+Telangana		Rajanna Sircilla	Sircilla	546121	2030.89	273
+Telangana	RA	Ranga Reddy	Hyderabad	2551731	1038.00	486
+Telangana		Sangareddy	Sangareddy	1527628	4464.87	347
+Telangana		Siddipet	Siddipet	993376	3425.19	279
+Telangana		Suryapet	Suryapet	1099560	3374.47	305
+Telangana		Vikarabad	Vikarabad	881250	3385.00	274
+Telangana		Wanaparthy	Wanaparthy	751553	2938.00	268
+Telangana		Warangal		1852164	3480.00	532
+Telangana	WL	Warangal (urban)	Warangal	1135707	1304.50	826
+Telangana		Warangal (rural)	Warangal	716457	2175.50	330
+Telangana		Yadadri Bhuvanagiri	Bhongiri	726465	3091.48	239
+Tripura	DH	Dhalai	Ambassa	377988	2400	157
+Tripura	GM	Gomati	Udaipur Tripura	436868	1522.8	287
+Tripura	KH	Khowai	Khowai	327391	1005.67	326
+Tripura	NT	North Tripura	Dharmanagar	415946	1444.5	288
+Tripura	SP	Sepahijala	Bishramganj	484233	1044.78	463
+Tripura	ST	South Tripura	Belonia	433737	1534.2	283
+Tripura	UK	Unokoti	Kailashahar	277335	591.93	469
+Tripura	WT	West Tripura	Agartala	917534	942.55	973
+Uttar Pradesh	AG	Agra	Agra	4380793	4027	1084
+Uttar Pradesh	AL	Aligarh	Aligarh	3673849	3747	1007
+Uttar Pradesh	AH	Allahabad	Allahabad	5959798	5481	1087
+Uttar Pradesh	AN	Ambedkar Nagar	Akbarpur	2398709	2372	1021
+Uttar Pradesh	CS	Amethi	Gauriganj			
+Uttar Pradesh	JP	Amroha	Amroha	1838771	2321	818
+Uttar Pradesh	AU	Auraiya	Auraiya	1372287	2051	681
+Uttar Pradesh	AZ	Azamgarh	Azamgarh	4616509	4053	1139
+Uttar Pradesh	BG	Bagpat	Baghpat	1302156	1345	986
+Uttar Pradesh	BH	Bahraich	Bahraich	2384239	4926	415
+Uttar Pradesh	BL	Ballia	Ballia	3223642	2981	1081
+Uttar Pradesh	BP	Balrampur	Balrampur	2149066	3349	642
+Uttar Pradesh	BN	Banda	Banda	1799541	4413	404
+Uttar Pradesh	BB	Barabanki	Barabanki	3257983	3825	739
+Uttar Pradesh	BR	Bareilly	Bareilly	4465344	4120	1084
+Uttar Pradesh	BS	Basti	Basti	2461056	2687	916
+Uttar Pradesh	BI	Bijnor	Bijnor	3683896	4561	808
+Uttar Pradesh	BD	Budaun	Budaun	3712738	5168	718
+Uttar Pradesh	BU	Bulandshahr	Bulandshahr	3498507	3719	788
+Uttar Pradesh	CD	Chandauli	Chandauli	1952713	2554	768
+Uttar Pradesh	CT	Chitrakoot	Karwi	990626	3202	315
+Uttar Pradesh	DE	Deoria	Deoria	3098637	2535	1220
+Uttar Pradesh	ET	Etah	Etah	1761152	2456	717
+Uttar Pradesh	EW	Etawah	Etawah	1579160	2287	683
+Uttar Pradesh	FZ	Faizabad	Faizabad	2468371	2765	1054
+Uttar Pradesh	FR	Farrukhabad	Fatehgarh	1887577	2279	865
+Uttar Pradesh	FT	Fatehpur	Fatehpur	2632684	4152	634
+Uttar Pradesh	FI	Firozabad	Firozabad	2496761	2361	1044
+Uttar Pradesh	GB	Gautam Buddh Nagar	Noida	1674714	1269	1252
+Uttar Pradesh	GZ	Ghaziabad	Ghaziabad	4661452	1175	3967
+Uttar Pradesh	GP	Ghazipur	Ghazipur	3622727	3377	1072
+Uttar Pradesh	GN	Gonda	Gonda	3431386	4425	857
+Uttar Pradesh	GR	Gorakhpur	Gorakhpur	4436275	3325	1336
+Uttar Pradesh	HM	Hamirpur	Hamirpur	1104021	4325	268
+Uttar Pradesh	PN	Hapur	Hapur	1451983		
+Uttar Pradesh	HR	Hardoi	Hardoi	4091380	5986	683
+Uttar Pradesh	HT	Hathras	Hathras	1565678	1752	851
+Uttar Pradesh	JL	Jalaun	Orai	1670718	4565	366
+Uttar Pradesh	JU	Jaunpur	Jaunpur	4476072	4038	1108
+Uttar Pradesh	JH	Jhansi	Jhansi	2000755	5024	398
+Uttar Pradesh	KJ	Kannauj	Kannauj	1658005	1993	792
+Uttar Pradesh	KD	Kanpur Dehat	Akbarpur (Mati)	1795092	3021	594
+Uttar Pradesh	KN	Kanpur Nagar	Kanpur	4572951	3156	1415
+Uttar Pradesh	KR	Kasganj	Kasganj	1438156	1955	736
+Uttar Pradesh	KS	Kaushambi	Manjhanpur	1596909	1837	897
+Uttar Pradesh	KU	Kushinagar	Padrauna	3560830	2909	1226
+Uttar Pradesh	LK	Lakhimpur Kheri	Lakhimpur	4013634	7674	523
+Uttar Pradesh	LA	Lalitpur	Lalitpur	1218002	5039	242
+Uttar Pradesh	LU	Lucknow	Lucknow	4588455	2528	1815
+Uttar Pradesh	MG	Maharajganj	Maharajganj	2665292	2953	903
+Uttar Pradesh	MH	Mahoba	Mahoba	876055	2847	288
+Uttar Pradesh	MP	Mainpuri	Mainpuri	1847194	2760	670
+Uttar Pradesh	MT	Mathura	Mathura	2541894	3333	761
+Uttar Pradesh	MB	Mau	Mau	2205170	1713	1287
+Uttar Pradesh	ME	Meerut	Meerut	3447405	2522	1342
+Uttar Pradesh	MI	Mirzapur	Mirzapur	2494533	4522	561
+Uttar Pradesh	MO	Moradabad	Moradabad	4773138	3718	1284
+Uttar Pradesh	MU	Muzaffarnagar	Muzaffarnagar	4138605	4008	1033
+Uttar Pradesh	PI	Pilibhit	Pilibhit	2037225	3499	567
+Uttar Pradesh	PR	Pratapgarh	Pratapgarh	3173752	3717	854
+Uttar Pradesh	RB	Raebareli	Raebareli	3404004	4609	739
+Uttar Pradesh	RA	Rampur	Rampur	2335398	2367	987
+Uttar Pradesh	SA	Saharanpur	Saharanpur	3464228	3689	939
+Uttar Pradesh	SM	Sambhal	Sambhal	2217020		
+Uttar Pradesh	SK	Sant Kabir Nagar	Khalilabad	1714300	1442	1014
+Uttar Pradesh	SR	Bhadohi	Gyanpur	1554203	960	1531
+Uttar Pradesh	SJ	Shahjahanpur	Shahjahanpur	3002376	4575	673
+Uttar Pradesh	SH	Shamli	Shamli			
+Uttar Pradesh	SV	Shravasti	Shravasti	1114615	1948	572
+Uttar Pradesh	SN	Siddharthnagar	Naugarh	2553526	2751	882
+Uttar Pradesh	SI	Sitapur	Sitapur	4474446	5743	779
+Uttar Pradesh	SO	Sonbhadra	Robertsganj	1862612	6788	274
+Uttar Pradesh	SU	Sultanpur	Sultanpur	3790922	4436	855
+Uttar Pradesh	UN	Unnao	Unnao	3110595	4561	682
+Uttar Pradesh	VA	Varanasi	Varanasi	3682194	1535	2399
+Uttarakhand	AL	Almora	Almora	621927	3090	198
+Uttarakhand	BA	Bageshwar	Bageshwar	259840	2310	116
+Uttarakhand	CL	Chamoli	Gopeshwar	391114	7692	49
+Uttarakhand	CP	Champawat	Champawat	259315	1781	147
+Uttarakhand	DD	Dehradun	Dehradun	1698560	3088	550
+Uttarakhand	HA	Haridwar	Haridwar	1927029	2360	817
+Uttarakhand	NA	Nainital	Nainital	955128	3853	225
+Uttarakhand	PG	Pauri Garhwal	Pauri	686527	5438	129
+Uttarakhand	PI	Pithoragarh	Pithoragarh	485993	7110	69
+Uttarakhand	RP	Rudraprayag	Rudraprayag	236857	1896	119
+Uttarakhand	TG	Tehri Garhwal	New Tehri	616409	4085	169
+Uttarakhand	US	Udham Singh Nagar	Rudrapur	1648367	2912	648
+Uttarakhand	UT	Uttarkashi	Uttarkashi	329686	7951	41
+West Bengal	AD	Alipurduar	Alipurduar	1700000	3383	400
+West Bengal	BN	Bankura	Bankura	3596292	6882	523
+West Bengal	BR	Paschim Bardhaman	Asansol	2882031	1603	1100
+West Bengal	BR	Purba Bardhaman	Bardhaman	4835532	5433	890
+West Bengal	BI	Birbhum	Suri	3502387	4545	771
+West Bengal	KB	Cooch Behar	Cooch Behar	2822780	3387	833
+West Bengal	DD	Dakshin Dinajpur	Balurghat	1670931	2183	753
+West Bengal	DA	Darjeeling	Darjeeling	1842034	3149	585
+West Bengal	HG	Hooghly	Chinsurah	5520389	3149	1753
+West Bengal	HR	Howrah	Howrah	4841638	1467	3300
+West Bengal	JA	Jalpaiguri	Jalpaiguri	3869675	6227	621
+West Bengal	JH	Jhargram	Jhargram	1136548	3038	370
+West Bengal	KA	Kalimpong	Kalimpong	251642	1054	239
+West Bengal	KO	Kolkata	Kolkata	4486679	185	24252
+West Bengal	MA	Maldah	English Bazar	3997970	3733	1071
+West Bengal	MSD	Murshidabad	Baharampur	7102430	5324	1334
+West Bengal	NA	Nadia	Krishnanagar	5168488	3927	1316
+West Bengal	PN	North 24 Parganas	Barasat	10082852	4094	2463
+West Bengal	PM	Paschim Medinipur	Midnapore	5094238	9345	1076
+West Bengal	PR	Purba Medinipur	Tamluk	4417377	4736	923
+West Bengal	PU	Purulia	Purulia	2927965	6259	468
+West Bengal	PS	South 24 Parganas	Alipore	8153176	9960	819
+West Bengal	UD	Uttar Dinajpur	Raiganj	3000849	3180	956

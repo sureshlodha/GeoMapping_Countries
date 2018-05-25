@@ -1,0 +1,274 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>GeoMapping Guam</title>
+		<script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.js"></script>
+
+		<style type="text/css">
+			/* No style rules here yet */		
+		</style>
+        
+        
+        <style type="text/css">
+            body{
+                background-color: #0c210e;
+            }		
+            
+            button {
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                font-weight: bold;
+                margin: 4px 2px;
+                cursor: pointer;
+                top: 191px;
+                left: 420px;
+                background-color: #28682d;
+                transform: -1000, -1000;
+            }
+            
+            h1{
+                color: white;
+            }
+            .label{
+                fill: white;
+            }
+            
+            .legendTitle{
+                fill: white;
+            }
+		</style>
+        
+        
+        
+	</head>
+    <h1>Guam Political Alignments D/R, 2010</h1>
+    
+    <div class = "button-container">    
+            <button class="button toggleData">Toggle Data</button>    
+    </div> 
+	<body>
+		<script type="text/javascript">
+
+            
+			//Width and height
+			var w = 800;
+			var h = 500;
+
+			//Define map projection
+			var projection = d3.geoEquirectangular()
+            //.geoEquirectangular()
+                               .center([(145), (13)])
+							   .translate([(w/2)+280, (h/2)+495])
+							   .scale([65000]);
+
+			//Define path generator
+			var path = d3.geoPath()
+							 .projection(projection);
+
+
+            
+            
+            var colorPop = d3.scaleThreshold()
+                .domain([0, 5000, 10000, 20000, 40000])
+				.range(["#fcbba1","#fc9272","#fb6a4a","#de2d26","#a50f15"]);
+
+            var colorPol = d3.scaleQuantize()
+                .range(["#2b8cbe", "#e34a33"]);
+            var popLegend = d3.scaleLinear()
+                  .range(["#fcbba1","#a50f15"]);
+            
+             var polLegend = d3.scaleLinear()
+                  .range(["#2b8cbe","#e34a33"]);
+            var svgLegend = d3.select("body")
+						      .append("svg")
+						      .attr("width", w)
+						      .attr("height", 480)
+                              .attr("transform", "translate(120,-20)");;
+            
+            
+			//Create SVG element
+			var svg = d3.select("body")
+						.append("svg")
+						.attr("width", w)
+						.attr("height", h);
+
+            
+    d3.csv("index.csv", function(data) {
+
+				//Set input domain for color scale
+				colorPol.domain([
+                    d3.min(data, function(d) { return d.politics; }), 
+                    d3.max(data, function(d) { return d.politics; })
+                ]);
+                
+                polLegend.domain([
+                    d3.min(data, function(d) { return d.politics; }), 
+                    d3.max(data, function(d) { return d.politics; })
+                ]);
+
+				//Load in GeoJSON data
+				d3.json("index.json", function(json) {
+                    //Merge the ag. data and GeoJSON
+                    //Loop through once for each data value
+                    for (var i = 0; i < data.length; i++) {
+                        //Grab state name
+                        var dataState = data[i].region;
+                        //Grab data value, and convert from string to float
+                        var politics = parseFloat(data[i].politics);
+                        var population = parseFloat(data[i].population);
+                        //Find the corresponding state inside the GeoJSON
+                        for (var j = 0; j < json.features.length; j++) {
+                            var jsonState = json.features[j].properties.NAME_1;
+                            if (dataState == jsonState) {
+                                //Copy the data value into the JSON
+                                json.features[j].properties.politics = politics;
+                                json.features[j].properties.population = population;
+                                //Stop looking through the JSON
+                                break;
+                            }
+                        }		
+                    }
+                    
+                    console.log(json)
+
+                    
+          
+          
+var log = d3.scaleLog()
+    .domain([500, 2000, 5000, 8000, 13000, 20000])
+    .range(["#ccc","#fcbba1","#fc9272","#fb6a4a","#de2d26","#a50f15"]);
+
+var svg = d3.select("svg");
+
+svg.append("g")
+  .attr("class", "legendLog")
+  .attr("transform", "translate(20,120)");
+
+var logLegend = d3.legendColor()
+    .title("Population")
+    .cells([500, 2000, 5000, 8000, 13000, 20000])
+    .scale(log);
+
+svg.select(".legendLog")
+  .call(logLegend);                
+                    
+                    
+                    
+var ordinal = d3.scaleOrdinal()
+    .domain(["D", "R"])
+    .range(["#2b8cbe", "#e34a33"]);
+
+var svg = d3.select("svg");
+
+svg.append("g")
+  .attr("class", "legendLog1")
+  .attr("transform", "translate(20,40)");
+
+var logLegend1 = d3.legendColor()
+    .title("Political Identity D/R")
+    .cells([500, 15000])
+    .scale(ordinal);
+
+svg.select(".legendLog1")
+  .call(logLegend1);
+                
+                                    
+                                    
+                                    
+    //Bind data and create one path per GeoJSON feature
+    svg.selectAll("path")
+       .data(json.features)
+       .enter()
+       .append("path")
+       .attr("d", path).attr("stroke","#fff")
+       .style("fill", function(d) {
+            //Get data value
+            var value = d.properties.politics;
+
+            if (value) {
+                //If value exists…
+                return colorPol(value);
+            } else {
+                //If value is undefined…
+                return "#2b8cbe";
+            }
+       });
+
+    });
+
+});
+
+            
+            var toggle = true;
+            
+            d3.select(".toggleData").on("click", function (d){
+                if(toggle == false){
+                    toggle = true; 
+                    
+                    d3.select("h1")
+                            .transition().duration(800)
+                            .text("Guam Political Alignments D/R, 2010");
+                    }
+                else{
+                    d3.select("h1")
+                            .transition().duration(800)
+                            .text("Guam Population Distribution, 2010");
+                    toggle = false
+                }
+                console.log(toggle);
+            if(toggle == false){ 
+                d3.selectAll("path").style("fill", function(d){
+                    
+                    //return colorPop(value);
+                    var popVal = d.properties.population;
+                    
+                    if (popVal){
+                        return colorPop(popVal);
+                    } else{
+                        return "#ccc";
+                    }
+                })
+            }
+                
+            else{
+                d3.selectAll("path").style("fill", function(d){
+                    
+                    //return colorPop(value);
+                    var polVal = d.properties.politics;
+                    
+                    if (polVal){
+                        return "#e34a33";
+                    } else{
+                        return "#2b8cbe";
+                    }
+                })
+                
+            }
+            });
+			
+</script>
+
+    
+    <h4> Github: https://github.com/EvanAFreeman/GeoMapping</h4>
+      
+    <h4> Sources: </h4>
+      <li>http://d3-legend.susielu.com/</li>
+      <li>https://github.com/balakrishna-k</li>
+      <li>https://en.wikipedia.org/wiki/Villages_of_Guam</li>
+        
+    <h4>Evan Freeman</h4>
+        
+    <h4>Instructor: Suresh Lodha</h4>
+    <h4>CMPS 165: Data programming for Visualization</h4>
+    <h4>Spring 2018</h4>
+        
+	</body>
+</html>

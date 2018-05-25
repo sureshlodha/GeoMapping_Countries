@@ -1,0 +1,46 @@
+body {
+    font-family: 'Raleway', sans-serif;
+    font-size: 13px;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+    
+}
+
+.dot {
+  stroke: #000;
+  stroke-width: 0.5px; 
+}
+
+/*Add Tooltip Type here*/
+
+div.tooltip { 
+    text-align: left; 
+    width: 150px; 
+    height: 60px; 
+    padding: 2px; 
+    font-family: 'Raleway', sans-serif;
+    font-size: 10px; 
+    background: lightsteelblue; 
+    border: 0px; 
+    border-radius: 6px; 
+    pointer-events: none;
+    font-weight: bold; 
+}
+
+.boundary {
+    fill: none; 
+    stroke: #ffffff;
+    stroke-width: 0.3px
+}
+
+.secondary {
+    fill-opacity: 0; 
+    stroke: #ffffff;
+    stroke-width: 0.3px
+}
+

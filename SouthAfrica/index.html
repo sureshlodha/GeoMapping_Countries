@@ -1,0 +1,542 @@
+<! Morgan Darknell, mdarknel>
+<! data from https://wazimap.co.za/profiles/country-ZA-south-africa/ >
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>South African Population Density and Employment</title>
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <style type="text/css">
+			
+            .h1 {
+                display: inline;
+            }
+            
+            /* legend reference from http://bl.ocks.org/StewartNoyce/9591184*/
+            .legend-title {
+                font-weight: bold;
+            }
+            
+            .legend-box {
+                fill: none;
+                stroke: #888;
+                font-size: 10px;
+            }
+		</style>
+    </head>
+    <body>
+        <! toggle help from http://bl.ocks.org/d3noob/7030f35b72de721622b8>
+        <!title to be edited later>
+        <center><b><h1 id="Titled"> South Africa Population Density, 2016</h1></b></center>
+        
+        <!toggle button>
+        <input id="toggle" type="button" value="Employment" onclick="toggle()" />
+        
+        <!placement div for svg>
+        <div></div>
+        
+        <!references>
+        <h4><a href="https://worldaxis.github.io/cmps165-asg6/">Github</a></h4>
+        <h4>Sources:</h4>
+        <p> <a href="http://bl.ocks.org/d3noob/7030f35b72de721622b8">Toggle Reference</a></p>
+        <p> <a href="http://bl.ocks.org/StewartNoyce/9591184">Legend Reference</a></p>
+        <p><a href="https://wazimap.co.za/profiles/country-ZA-south-africa/"> Wazimap</a>, Provinces: <a href="https://wazimap.co.za/profiles/province-NC-northern-cape/">Northern Cape</a>, <a href="https://wazimap.co.za/profiles/province-WC-western-cape/">Western Cape</a>, <a href="https://wazimap.co.za/profiles/province-EC-eastern-cape/">Eastern Cape</a>, <a href="https://wazimap.co.za/profiles/province-FS-free-state/">Free State</a>, <a href="https://wazimap.co.za/profiles/province-NW-north-west/">North West</a>, <a href="https://wazimap.co.za/profiles/province-GT-gauteng/">Gauteng</a>, <a href="https://wazimap.co.za/profiles/province-LIM-limpopo/">Limpopo</a>, <a href="https://wazimap.co.za/profiles/province-MP-mpumalanga/">Mpumalanga</a>, <a href="https://wazimap.co.za/profiles/province-KZN-kwazulu-natal/">KwaZulu-Natal</a></p>
+        <h4>Morgan Darknell</h4>
+        <h4>Instructor: Suresh Lodha</h4>
+        <h4>CMPS165: Data programming for Visualization</h4>
+        <h4>Spring 2018</h4>
+        
+        
+        <script type="text/javascript">
+            
+            //Width and height
+			var w = 750;
+			var h = 450;
+            
+            //var cScale = d3.scaleOrdinal(d3.schemeCategory10);
+            
+            //define quantize scale to sort data values into buckets of color for each set of data
+            var color = d3.scaleQuantize().range(["#ffffb2", "#fee391", "#fec44f", "#fe9929", "#ec7014", "#cc4c02", "#8c2d04"]);
+            var color_2 = d3.scaleQuantize().range(["#ffffb2", "#fee391", "#fec44f", "#fe9929", "#ec7014", "#cc4c02", "#8c2d04"]);
+
+			//Define map projection
+			var projection = d3.geoAzimuthalEqualArea()//Albers()//.fitSize([w, h]);
+                               .rotate(90)//[90, 90, 90])
+							   .translate([ -9 * h/16 /*-3 * h/16*/ , -3 * w/4 /*-8 * w/32*/])
+							   .scale(1500);
+                               //.rotate(1);
+
+			//Define path generator
+			var path = d3.geoPath()
+							 .projection(projection);
+
+			//Create SVG element
+			var svg = d3.select("div")
+						.append("svg")
+						.attr("width", w)
+						.attr("height", h);
+            
+            //toggle value (with some tricks)
+            var state_xy = 0; //document.getElementById("Titled");
+            //console.log(state);
+            
+
+            //Load in population data
+            d3.csv("south africa data.csv", function(data) {
+
+                //console.log(data);
+
+                //set input domain for color scales                
+                color.domain([
+                    d3.min(data, function(d) { return d.Population / d.Area; }),
+                    d3.max(data, function(d) { return d.Population / d.Area; })
+                ]);
+                color_2.domain([
+                    d3.min(data, function(d) { return d.Employment; }),
+                    d3.max(data, function(d) { return d.Employment; })
+                ]);
+
+                //load in geojson data
+                d3.json("ZAF_adm1_simplified_2.json", function(json) {
+
+                    //console.log(json);
+
+                    //merge the pop data and geoJson data
+                    //loop through once for each pop data value
+                    for (var i = 0; i < data.length; i++) {
+
+                        //grab province name
+                        var dataProvince = data[i].Province;
+                        //console.log(data[i]);
+                        //console.log(dataProvince);
+
+                        //grab area data and convert from string to float
+                        var dataArea = parseFloat(data[i].Area);
+
+                        //grab population data and convert from string to float
+                        var dataPopulation = parseFloat(data[i].Population);
+
+                        //grab employment data and convert from string to float
+                        var dataEmployment = parseFloat(data[i].Employment);
+
+                        //grab date and convert from string to float
+                        var dataPopDate = parseFloat(data[i].Pop_Date);
+                        var dataEmployDate = parseFloat(data[i].Employ_Date);
+
+                        //find the corresponding state inside the GeoJSON
+                        for (var j = 0; j < json.features.length; j++) {
+
+                            //console.log(json.features[j]);
+                            
+                            //load up province name and compare
+                            var jsonProvince = json.features[j].properties.Name;
+                            //console.log(jsonProvince);
+
+                            if (dataProvince == jsonProvince) {
+
+                                //console.log("here");
+                                
+                                //copy the data calue into the JSON
+                                json.features[j].properties.Density = (dataPopulation / dataArea);
+                                json.features[j].properties.PopDate = dataPopDate;
+                                json.features[j].properties.Employ = dataEmployment;
+                                json.features[j].properties.EmpDate = dataEmployDate;
+                                json.features[j].properties.pop = dataPopulation;
+
+                                //stop looking
+                                break;
+
+                            }
+                        }
+                    }
+
+                    //Bind Data and create one path per geojson feature
+                    svg.selectAll("path")
+                       .data(json.features)
+                       .enter()
+                       .append("path")
+                       .attr("d", path)
+                       .style("fill", function(d) {
+                            //get data value for the right chart
+                            //console.log(state);
+                            if(state_xy == 0){
+                                //console.log(state);
+                                var value = d.properties.Density;
+                            } else {
+                                var value = d.properties.Employ;
+                            }
+
+                            if (value) {
+                                //If value exists...return the appropriate color
+                                if(state_xy == 0){
+                                    return color(value);
+                                } else{
+                                    return color_2(value);
+                                }
+                            } else {
+                                //If value is undefined...return grey
+                                return "#ccc";
+                            }})
+                       //add a title with the province information
+                       .append("title")
+                       .text(function(d) {
+                            return d.id + "\nPopulation:\n   Total: " + d.properties.pop + "\n   Density: " + (Math.round(d.properties.Density * 100) / 100) + " per km^2\n   Date: " + d.properties.PopDate + "\nEmployment:\n   Employment: " + d.properties.Employ + "%\n   Date: " + d.properties.EmpDate; 
+                       });
+                });
+            });
+            
+            //toggle variable
+            //var state = 0;
+            
+            //make legend - help from  http://bl.ocks.org/StewartNoyce/9591184
+            
+            //return quantize threshold for key
+            var qrange = function(set, num) {
+                var a = [];
+                for (var i = 0; i < num; i++) {
+                    a.push(set[0] + i * (set[1] - set[0])/num);
+                }
+                return a;
+            }
+            
+            //create group with legend offset
+            var legend = svg.append("g")
+                            .attr("transform", "translate (" + 5 * w / 6 + "," + 3 * h / 6 +")")
+                            .attr("class", "legend");
+            
+            //give legend a title
+            //console.log(state);
+            if(state_xy == 0){
+                legend.append("text")
+                .attr("class", "legend-title")
+                .attr("y", 12)
+                .attr("font-size", "14px")
+                .text("Population Density")
+            } else {
+                legend.append("text")
+                .attr("class", "legend-title")
+                .attr("y", 12)
+                .attr("font-size", "14px")
+                //.attr("font-style", "sans-serif")
+                .text("Employment Rate")
+            }
+            
+            //make quantized key items
+            var li = legend.append("g")
+                           .attr("transform", "translate (" + 8 + "," + 14 + ")")
+                           .attr("class", "legend-items");
+
+            //create legend for the particular chart
+            if(state_xy == 0){
+                //add samples
+                li.selectAll("rect")
+                    .data(color.range().map(function(hue) {
+                        //make sure data is valid
+                        var d = color.invertExtent(hue);
+                        //console.log(d);
+                        if(d[0] == null) d[0] = 0;
+                        if(d[1] == null) d[1] = 1;
+                        return d;
+                    }))
+                    //append colored rectangle
+                    .enter().append("rect")
+                    .attr("y", function(d,i) { return (i + 1) * 14 - 10; })
+                    .attr("width", 40)
+                    .attr("height", 10)
+                    .style("fill", function(d) {return color(d[0]); });
+
+                li.selectAll("text")
+                    //generate thresholds for data
+                    .data(qrange(color.domain(), color.range().length))
+                    .enter().append("text")
+                    .attr("x", 48)
+                    .attr("y", function(d, i) { return (i + 1) * 14; })
+                    .attr("font-size", "12px")
+                    //keep the value tight, possible glitch: on load, data is bad
+                    .text(function(d) { 
+                        //console.log(d);
+                        return + (Math.round(d * 100) / 100);
+                    });
+            } else{
+                    li.selectAll("rect")
+                        .data(color_2.range().map(function(hue) {
+                            //make sure data is valid
+                            var d = color_2.invertExtent(hue);
+                            if(d[0] == null) d[0] = 0;
+                            if(d[1] == null) d[1] = 1;
+                            return d;
+                        }))
+                        //append colored rectangles
+                        .enter().append("rect")
+                        .attr("y", function(d,i) { return (i + 1) * 14 - 10; })
+                        .attr("width", 40)
+                        .attr("height", 10)
+                        .style("fill", function(d) {return color_2(d[0]); });
+
+                    li.selectAll("text")
+                        //generate thresholds for data
+                        .data(qrange(color_2.domain(), color_2.range().length))
+                        .enter().append("text")
+                        .attr("x", 48)
+                        .attr("y", function(d, i) { return (i + 1) * 14; })
+                        .attr("font-size", "12px")
+                        //keep the values tight and output as percent
+                        .text(function(d) { return +(Math.round(d * 100) / 100) + "%"; });
+                    }
+            
+            //toggle variable
+            var state_xy = 0;
+    
+            
+            //toggle function
+            //toggle help from http://bl.ocks.org/d3noob/7030f35b72de721622b8
+            
+            console.log(state_xy);
+
+            function toggle(){
+                    
+                    //get title and button elements
+                    var title = document.getElementById("Titled");
+                    var button = document.getElementById("toggle");
+                    //console.log(title);
+                    //console.log(button);
+                    //printsvg();
+                
+                    //get toggle value (with some tricks)
+                    //var state = +title.value;
+                
+                
+                    
+                    //change state
+                    console.log(state_xy);
+                    state_xy = 1 - state_xy;
+                    console.log(state_xy);
+                
+                    //title.value = + state;
+                    
+                    //edit title and button text
+                    if(state_xy == 0){
+                        button.value = "Employment";
+                        //console.log(button);
+                        title.innerHTML = "South Africa Population Density, 2016";
+                        //console.log(title);
+                    } else{
+                        button.value = "Population Density";
+                        title.innerHTML = "South Africa Employment Rate, 2011";
+                        //console.log(title);
+                    }
+                    console.log(state_xy);
+
+                    //Delete SVG element
+                    d3.select("svg").remove();
+
+                            //Create SVG element
+                    var svg = d3.select("div")
+                                .append("svg")
+                                .attr("width", w)
+                                .attr("height", h);
+
+
+                    //Load in population data
+                    d3.csv("south africa data.csv", function(data) {
+
+                        console.log(state_xy);
+
+                        //set input domain for color scale                
+                        color.domain([
+                            d3.min(data, function(d) { return d.Population / d.Area; }),
+                            d3.max(data, function(d) { return d.Population / d.Area; })
+                        ]);
+                        color_2.domain([
+                            d3.min(data, function(d) { return d.Employment; }),
+                            d3.max(data, function(d) { return d.Employment; })
+                        ]);
+
+                        //load in geojson data
+                        d3.json("ZAF_adm1_simplified_2.json", function(json) {
+
+                            console.log(state_xy);
+
+                            //merge the pop data and geoJson data
+                            //loop through once for each pop data value
+                            for (var i = 0; i < data.length; i++) {
+
+                                //grab province name
+                                var dataProvince = data[i].Province;
+                                //console.log(data[i]);
+                                //console.log(dataProvince);
+
+                                //grab area data and convert from string to float
+                                var dataArea = parseFloat(data[i].Area);
+
+                                //grab population data and convert from string to float
+                                var dataPopulation = parseFloat(data[i].Population);
+
+                                //grab employment data and convert from string to float
+                                var dataEmployment = parseFloat(data[i].Employment);
+
+                                //grab date and convert from string to float
+                                var dataPopDate = parseFloat(data[i].Pop_Date);
+                                var dataEmployDate = parseFloat(data[i].Employ_Date);
+
+                                //find the corresponding state inside the GeoJSON
+                                for (var j = 0; j < json.features.length; j++) {
+
+                                    //console.log(json.features[j]);
+
+                                    //load up province name and compare
+                                    var jsonProvince = json.features[j].properties.Name;
+                                    //console.log(jsonProvince);
+
+                                    if (dataProvince == jsonProvince) {
+
+                                        //copy the data calue into the JSON
+                                        json.features[j].properties.Density = (dataPopulation / dataArea);
+                                        json.features[j].properties.PopDate = dataPopDate;
+                                        json.features[j].properties.Employ = dataEmployment;
+                                        json.features[j].properties.EmpDate = dataEmployDate;
+                                        json.features[j].properties.pop = dataPopulation;
+
+                                        //stop looking
+                                        break;
+
+                                    }
+                                }
+                            }
+                            
+                            console.log(state_xy);
+
+                            //Bind Data and create one path per geojson feature
+                            svg.selectAll("path")
+                               .data(json.features)
+                               .enter()
+                               .append("path")
+                               .attr("d", path)
+                               .style("fill", function(d) {
+                                    //get data value for the right chart
+                                    console.log(state_xy);
+                                    if(state_xy == 0){
+                                        var value = d.properties.Density;
+                                    } else {
+                                        var value = d.properties.Employ;
+                                    }
+
+                                    if (value) {
+                                        //If value exists...return the appropriate color
+                                        if(state_xy == 0){
+                                            return color(value);
+                                        } else{
+                                            return color_2(value);
+                                        }
+                                    } else {
+                                        //If value is undefined...return grey
+                                        return "#ccc";
+                                    }})
+                               //add a title with the province information
+                               .append("title")
+                               .text(function(d) {
+                                    return d.id + "\nPopulation:\n   Total: " + d.properties.pop + "\n   Density: " + (Math.round(d.properties.Density * 100) / 100) + " per km^2\n   Date: " + d.properties.PopDate + "\nEmployment:\n   Employment: " + d.properties.Employ + "%\n   Date: " + d.properties.EmpDate; 
+                               });
+                        });
+                    });
+
+                    //toggle variable
+                    var state_xy = 0;
+
+                    //make legend - help from  http://bl.ocks.org/StewartNoyce/9591184
+
+                    //return quantize threshold for key
+                    var qrange = function(set, num) {
+                        var a = [];
+                        for (var i = 0; i < num; i++) {
+                            a.push(set[0] + i * (set[1] - set[0])/num);
+                        }
+                        return a;
+                    }
+
+                    //create group with legend offset
+                    var legend = svg.append("g")
+                                    .attr("transform", "translate (" + 5 * w / 6 + "," + 3 * h / 6 +")")
+                                    .attr("class", "legend");
+
+                    //give legend a title
+                    if(state_xy == 0){
+                        legend.append("text")
+                        .attr("class", "legend-title")
+                        .attr("y", 12)
+                        .attr("font-size", "14px")
+                        .text("Population Density")
+                    } else {
+                        legend.append("text")
+                        .attr("class", "legend-title")
+                        .attr("y", 12)
+                        .attr("font-size", "14px")
+                        //.attr("font-style", "sans-serif")
+                        .text("Employment Rate")
+                    }
+
+                    //make quantized key items
+                    var li = legend.append("g")
+                                   .attr("transform", "translate (" + 8 + "," + 14 + ")")
+                                   .attr("class", "legend-items");
+
+                    //create legend for the particular chart
+                    if(state_xy == 0){
+                        //add samples
+                        li.selectAll("rect")
+                            .data(color.range().map(function(hue) {
+                                //make sure data is valid
+                                var d = color.invertExtent(hue);
+                                if(d[0] == null) d[0] = 0;
+                                if(d[1] == null) d[1] = 1;
+                                return d;
+                            }))
+                            //append colored rectangle
+                            .enter().append("rect")
+                            .attr("y", function(d,i) { return (i + 1) * 14 - 10; })
+                            .attr("width", 40)
+                            .attr("height", 10)
+                            .style("fill", function(d) {return color(d[0]); });
+
+                        li.selectAll("text")
+                            //generate thresholds for data
+                            .data(qrange(color.domain(), color.range().length))
+                            .enter().append("text")
+                            .attr("x", 48)
+                            .attr("y", function(d, i) { return (i + 1) * 14; })
+                            .attr("font-size", "12px")
+                            //keep the value tight, possible glitch: on load, data is bad
+                            .text(function(d) { 
+                                //console.log(d);
+                                return +(Math.round(d * 100) / 100);
+                            });
+                    } else{
+                        li.selectAll("rect")
+                            .data(color_2.range().map(function(hue) {
+                                //make sure data is valid
+                                var d = color_2.invertExtent(hue);
+                                if(d[0] == null) d[0] = 0;
+                                if(d[1] == null) d[1] = 1;
+                                return d;
+                            }))
+                            //append colored rectangles
+                            .enter().append("rect")
+                            .attr("y", function(d,i) { return (i + 1) * 14 - 10; })
+                            .attr("width", 40)
+                            .attr("height", 10)
+                            .style("fill", function(d) {return color_2(d[0]); });
+
+                        li.selectAll("text")
+                            //generate thresholds for data
+                            .data(qrange(color_2.domain(), color_2.range().length))
+                            .enter().append("text")
+                            .attr("x", 48)
+                            .attr("y", function(d, i) { return (i + 1) * 14; })
+                            .attr("font-size", "12px")
+                            //keep the values tight and output as percent
+                            .text(function(d) { return +(Math.round(d * 100) / 100) + "%"; });
+                    }
+            }
+			
+		</script>
+    </body>
+</html>

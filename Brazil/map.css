@@ -1,0 +1,14 @@
+button.switch-data{
+    border-radius: 0px;
+    width: 80px;
+    height: 40px;
+    font: 20px;
+    
+}
+.hide-key {
+   display:none;
+}
+a {
+    clear:both;
+    display:block;
+}

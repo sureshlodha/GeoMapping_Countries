@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Population Density of Mexico by Municipality</title>
+    <link rel="stylesheet" type="text/css" href="mexico.css">
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+    <div id="tooltip" class="hidden">
+        <p><span id="state"></span></p>
+        <p><span id="municipality"></span></p>
+        <p><span id="population"></span></p>
+        <p><span id="area"></span></p>
+        <p><span id="density"></span></p>
+    </div>
+    <h1 style = "text-align:center; color:steelblue">
+        <b>Population Density of Mexico by Municipality</b></h1>
+    <script src="mexico.js"></script>
+    <div id="legend">
+        <div><div class="color" style="background-color: #993404"></div><p> &gt 5000 people per sq km</p></div>
+        <div><div class="color" style="background-color: #d95f0e"></div><p> 1000 to 5000 people per sq km</p></div>
+        <div><div class="color" style="background-color: #fe9929"></div><p> 100 to 1000 people per sq km</p></div>
+        <div><div class="color" style="background-color: #fec44f"></div><p> 10 to 100 people per sq km</p></div>
+        <div><div class="color" style="background-color: #fee391"></div><p> 1 to 10 people per sq km</p></div>
+        <div><div class="color" style="background-color: #ffffd4"></div><p> &lt 1 person per sq km</p></div>
+    </div>
+    <div id="footer">
+        A Visualization by Malcolm Flint<br>
+        Instructor: Suresh Lodha<br>
+        CMPS165: Data Programming for Visualization<br>
+        Spring 2018<br>
+        <a href="https://github.com/malcolmflint/mexico-population">GitHub</a><br>
+        <a href="https://goo.gl/g2Fcxr">Data Source</a><br>
+    </div>
+</body>
+</html>

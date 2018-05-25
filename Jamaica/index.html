@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<div id="option">
+    <input name="updateButton" 
+           type="button" 
+           value="Population Density" 
+           onclick="updateData()" />
+</div>
+<div id="option">
+    <input name="updateButton" 
+           type="button" 
+           value="Farmland" 
+           onclick="updateData2()" />
+</div>
+<p style="font-size:30px; font-weight:bold">Jamaica's Population Density and Farmland Area</p>
+<svg width="960" height="700"></svg>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+<script>
+
+    var svg = d3.select("svg"),
+        width = +svg.attr("width"),
+        height = +svg.attr("height");
+
+    var color = d3.scaleThreshold()
+    .domain([1, 10, 50, 200, 500, 1000, 2000, 4000])
+    .range(d3.schemeOrRd[9]);
+
+    var color2 = d3.scaleThreshold()
+    //.domain([1, 5000, 10000, 15000, 20000, 25000, 30000, 40000])
+    .domain([1, 8, 15, 20, 25, 30, 35, 45])
+    .range(d3.schemeBuGn[9]);
+
+    var x = d3.scaleSqrt()
+    .domain([0, 4500])
+    .rangeRound([440, 950]);
+
+    var g = svg.append("g")
+    .attr("class", "key")
+    .attr("transform", "translate(0,40)");
+
+    g.selectAll("rect")
+        .data(color.range().map(function(d) {
+        d = color.invertExtent(d);
+        if (d[0] == null) d[0] = x.domain()[0];
+        if (d[1] == null) d[1] = x.domain()[1];
+        return d;
+    }))
+        .enter().append("rect")
+        .attr("height", 8)
+        .attr("x", function(d) { return x(d[0]); })
+        .attr("width", function(d) { return x(d[1]) - x(d[0]); })
+        .attr("fill", function(d) { return color(d[0]); });
+
+    g.append("text")
+        .attr("class", "caption")
+        .attr("x", x.range()[0])
+        .attr("y", -6)
+        .attr("fill", "#000")
+        .attr("text-anchor", "start")
+        .attr("font-weight", "bold")
+        .text("Population per Square Kilometer (2011 Census)");
+
+    g.call(d3.axisBottom(x)
+           .tickSize(13)
+           .tickValues(color.domain()))
+        .select(".domain")
+        .remove();
+
+
+
+    d3.json("jamaica.json", function(error, topology) {
+        if (error) throw error;
+
+        console.log(topology);
+        console.log(topology.features.density);
+        var projection = d3.geoMercator().fitSize([width, height], topology);
+        var path = d3.geoPath().projection(projection);
+
+        svg
+            .selectAll("path")
+            .data(topology.features)
+            .enter().append("path")
+            .attr("fill", function(d) { console.log(d.properties.density); return color(d.properties.density);})
+            .attr("stroke", "#000")
+            .attr("stroke-width", 1)
+            .attr("stroke-opacity", 0.3)
+            .attr("d", path);
+
+    });
+
+
+
+    function updateData() {
+        // d3.selectAll("g > *").remove();
+        d3.selectAll("svg > *").remove();
+
+        var x = d3.scaleSqrt()
+        .domain([0, 4500])
+        .rangeRound([440, 950]);
+
+        var g = svg.append("g")
+        .attr("class", "key")
+        .attr("transform", "translate(0,40)");
+
+        g.selectAll("rect")
+            .data(color.range().map(function(d) {
+            d = color.invertExtent(d);
+            if (d[0] == null) d[0] = x.domain()[0];
+            if (d[1] == null) d[1] = x.domain()[1];
+            return d;
+        }))
+            .enter().append("rect")
+            .attr("height", 8)
+            .attr("x", function(d) { return x(d[0]); })
+            .attr("width", function(d) { return x(d[1]) - x(d[0]); })
+            .attr("fill", function(d) { return color(d[0]); });
+
+        g.append("text")
+            .attr("class", "caption")
+            .attr("x", x.range()[0])
+            .attr("y", -6)
+            .attr("fill", "#000")
+            .attr("text-anchor", "start")
+            .attr("font-weight", "bold")
+            .text("Population per Square Kilometer  (2011 Census)");
+
+        g.call(d3.axisBottom(x)
+               .tickSize(13)
+               .tickValues(color.domain()))
+            .select(".domain")
+            .remove();
+
+
+
+        // Get the data again
+        d3.json("jamaica.json", function(error, topology) {
+            if (error) throw error;
+
+            console.log(topology);
+
+            var projection = d3.geoMercator().fitSize([width, height], topology);
+            var path = d3.geoPath().projection(projection);
+
+            svg
+                .selectAll("path")
+                .data(topology.features)
+            // .data(topojson.feature(topology, topology.features))
+                .enter().append("path")
+            //.attr("fill", function(d) { console.log(d.properties.density); return d3.schemeOrRd[9][d.properties.density]; })
+
+                .attr("fill", function(d) { console.log(d.properties.density, color(d.properties.density));  return color(d.properties.density);})
+                .attr("stroke", "#000")
+                .attr("stroke-width", 1)
+                .attr("stroke-opacity", 0.3)
+                .attr("d", path);
+
+        });
+    }
+
+    function updateData2() {
+        // d3.selectAll("g > *").remove();
+        d3.selectAll("svg > *").remove();
+
+
+        var x2 = d3.scaleSqrt()
+        .domain([0, 45])
+        .rangeRound([440, 940]);
+
+        var g2 = svg.append("g")
+        .attr("class", "key")
+        .attr("transform", "translate(0,40)");
+
+        g2.selectAll("rect")
+            .data(color2.range().map(function(d) {
+            d = color2.invertExtent(d);
+            if (d[0] == null) d[0] = x2.domain()[0];
+            if (d[1] == null) d[1] = x2.domain()[1];
+            return d;
+        }))
+            .enter().append("rect")
+            .attr("height", 8)
+            .attr("x", function(d) { return x2(d[0]); })
+            .attr("width", function(d) { return x2(d[1]) - x2(d[0]); })
+            .attr("fill", function(d) { return color2(d[0]); });
+
+
+        g2.append("text")
+            .attr("class", "caption")
+            .attr("x", x2.range()[0])
+            .attr("y", -6)
+            .attr("fill", "#000")
+            .attr("text-anchor", "start")
+            .attr("font-weight", "bold")
+            .text("Area of Farmland in (Thousands of) Hectares (2007)")
+            .attr("transform", "translate(0,40)");
+
+        g2.call(d3.axisBottom(x2)
+                .tickSize(13)
+                .tickValues(color2.domain()))
+            .select(".domain")
+            .remove();
+
+        d3.json("jamaica.json", function(error, topology) {
+            if (error) throw error;
+
+            console.log(topology);
+
+
+            var projection = d3.geoMercator().fitSize([width, height], topology);
+            var path = d3.geoPath().projection(projection);
+
+            svg
+                .selectAll("path")
+                .data(topology.features)
+            // .data(topojson.feature(topology, topology.features))
+                .enter().append("path")
+                .attr("fill", function(d) { console.log(d.properties.farm, color2(d.properties.farm)); return color2(d.properties.farm);})
+                .attr("stroke", "black")
+                .attr("stroke-width", 2)
+                .attr("stroke-opacity", 0.3)
+                .attr("d", path);
+
+        });
+    }
+</script>
+<div>
+    <a href="http://statinja.gov.jm/agricensus.aspx">Farm Area Source</a> and 
+    <a href="http://www.citypopulation.de/Jamaica.html">Population Density Source</a>
+</div>
+<a href="https://github.com/Arndtman/CS165">GitHub Link</a>
+
+<p>Alex Arndt</p>
+<p>Instructor: Suresh Lodha</p>
+<p>CMPS165: Data Programming for Visualization</p>
+<p>Spring 2018</p>

@@ -1,0 +1,81 @@
+<!-- Source: https://bl.ocks.org/artidata/4a25aff39864ec088d0a61a7d31a6f44 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Singapore Population Density 2015</title>
+    <script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <style type="text/css">
+        .viz {
+            background-color: #deebf7;
+        }
+
+        #tooltip {
+            font-size: 12px;
+            position: absolute;
+            width: auto;
+            height: auto;
+            padding: 2.5px;
+            border: 1px solid black;
+            background: rgb(250, 250, 250);
+            background: rgba(250, 250, 250, 0.8);
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            pointer-events: none;
+        }
+
+        #tooltip.hidden {
+            display: none;
+        }
+
+        .info {
+            line-height: 1;
+        }
+
+        /*  path.area{
+            stroke-width:0.3;
+            fill: #ffffbf;
+            stroke: black;
+        }
+        path.area.highlight{
+          fill:#78c679;
+        }*/
+    </style>
+</head>
+
+<body>
+    <h1>
+        <center>Singapore Population Density, 2015</center>
+    </h1>
+    <div id="tooltip" class="hidden">
+        <p><span id="value"></p>
+    </div>
+    <script type="text/javascript" src="Singapore.js"></script>
+    
+    <div class="info">
+        <p><a href="https://bl.ocks.org/JamesHuangUC/raw/a0185d002dd3c332fe47ac444826b8e2" target="_blank">Visualize</a></p>
+        <p><b>Code: </b><a href="https://gist.github.com/JamesHuangUC/a0185d002dd3c332fe47ac444826b8e2" target="_blank">https://gist.github.com/JamesHuangUC/a0185d002dd3c332fe47ac444826b8e2</a></p>
+        <h4>Source:</h4>
+        <ol>
+            <li>
+                <p>Urban Redevelopment Authority: <a href="https://geo.data.gov.sg/planning-area-census2010/2014/04/14/kml/planning-area-census2010.zip" target="_blank">https://geo.data.gov.sg/planning-area-census2010/2014/04/14/kml/planning-area-census2010.zip</a></p>    
+            </li>
+            <li>
+                <p>Department of Statistics Singapore: <a href="https://www.singstat.gov.sg/find-data/search-by-theme/population/geographic-distribution/latest-data" target="_blank">https://www.singstat.gov.sg/find-data/search-by-theme/population/geographic-distribution/latest-data</a></p>
+            </li>
+            <li>
+                <p>Wikipedia: <a href="https://en.wikipedia.org/wiki/Planning_Areas_of_Singapore" target="_blank">https://en.wikipedia.org/wiki/Planning_Areas_of_Singapore</a></p>
+            </li>
+        </ol>
+        <h4>Information:</h4>
+        <p>Created by: Zihua Huang</p>
+        <p>Professor: Suresh Lodha</p>
+        <p>CMPS 165: Data programming for Visualization</p>
+        <p>Spring 2018</p>
+    </div>
+</body>
+
+</html>

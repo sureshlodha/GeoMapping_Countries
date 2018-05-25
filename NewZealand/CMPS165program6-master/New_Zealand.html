@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<style>
+    div.tooltip {
+        
+        display: inline-block;
+        position: absolute;
+        text-align: top;
+        padding: 8px;
+        font: 20px sans-serif;
+        background: lightsteelblue;
+        border-radius: 8px;
+        pointer-events: none;
+    }
+</style>
+
+<h1 style = "text-align:center; font: sans-serif"><bold> New Zealand Population, 2017 </bold></h1>
+
+
+<svg width="960" height="1500"></svg>
+
+<a href="https://github.com/xshao7/xshao7.github.io"><h2>Github Link</h2></a>
+<a href="https://en.wikipedia.org/wiki/Territorial_authorities_of_New_Zealand"><h2>New Zealad Population Density Data 2017</h2></a>
+
+<h2>Xianlin Shao</h2>
+<h2>Instructor: Suresh Lodha</h2>
+<h2>CMPS 165: Data programming for Visualization</h2>
+<h2>Spring 2018</h2>
+
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+<script src="https://d3js.org/topojson.v2.min.js"></script>
+<script>
+
+var svg = d3.select("svg"),
+    width = +svg.attr("width"),
+    height = +svg.attr("height");
+
+var color = d3.scaleThreshold()
+    .domain([1, 5, 20, 50, 200, 500, 1000, 1500])
+    .range(d3.schemeOrRd[9]);
+
+var x = d3.scaleSqrt()
+    .domain([0, 1600])
+    .rangeRound([440, 950]);
+
+var g = svg.append("g")
+    .attr("class", "key")
+    .attr("transform", "translate(0,30)");
+
+var div = d3.select("body")
+        .append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0);
+    
+g.selectAll("rect")
+  .data(color.range().map(function(d) {
+      d = color.invertExtent(d);
+      if (d[0] == null) d[0] = x.domain()[0];
+      if (d[1] == null) d[1] = x.domain()[1];
+      return d;
+    }))
+  .enter().append("rect")
+    .attr("height", 8)
+    .attr("x", function(d) { return x(d[0]); })
+    .attr("width", function(d) { return x(d[1]) - x(d[0]); })
+    .attr("fill", function(d) { return color(d[0]); });
+
+g.append("text")
+    .attr("class", "caption")
+    .attr("x", x.range()[0])
+    .attr("y", -6)
+    .attr("fill", "#000")
+    .attr("text-anchor", "start")
+    .attr("font-weight", "bold")
+    .text("Population per square kilometer");
+
+g.call(d3.axisBottom(x)
+    .tickSize(13)
+    .tickValues(color.domain()))
+  .select(".domain")
+    .remove();
+
+
+//read json file
+d3.json("New_Zealand-2.json", function(error, topology) {
+  if (error) throw error;
+
+//  console.log(topology);
+    
+    var scale = 1;
+    var projection = d3.geoMercator().fitSize([width*scale, height*scale], topology);
+
+    var path = d3.geoPath()
+      .projection(projection);
+    
+  svg.selectAll("path")
+    .data(topology.features)
+    .enter().append("path")
+      .attr("fill", function(d) { return color(d.properties.density); })
+      .attr("d", path)
+    .on("mouseover", function (d) {
+            div.transition()
+                .duration(200)
+                .style("opacity", 0.9);
+            div.html(d.properties.NAME_2 + "<br/>Population Density: " + d.properties.density + "/km<sup>2</sup>")
+                .style("left", (d3.event.pageX) + "px")
+                .style("top", (d3.event.pageY - 28) + "px");
+        })
+        .on("mouseout", function () {
+            div.transition()
+                .duration(500)
+                .style("opacity", 0);
+        });
+
+  svg.selectAll("path")
+      .data(topology.features)
+//      .attr("fill", "")
+      .attr("stroke", "#000")
+      .attr("stroke-opacity", 0.2)
+      .attr("d", path);
+});
+
+</script>

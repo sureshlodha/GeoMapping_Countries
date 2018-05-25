@@ -1,0 +1,30 @@
+body {
+    font: 13px sans-serif;
+    max-width: 1080px;
+    margin: 0 auto 4em auto;
+}
+
+h1{
+    text-align: center;
+}
+
+svg {
+    width: 100%;
+    height: 100%
+}
+
+/*Add Tooltip Type here*/
+
+.toolTip {
+    position: absolute;
+    display: none;
+    min-width: 80px;
+    /* height: auto; */
+    background: none repeat scroll 0 0 #BBCCFF;
+    border: 0px;
+    border-style: solid;
+    border-radius: 8px;
+    /* padding: 14px; */
+    /* text-align: left; */
+    font-weight: bold;
+}

@@ -1,0 +1,72 @@
+body {
+  -webkit-font-smoothing: antialiased;
+  font-family: system-ui;
+}
+
+button {
+  width: 120px;
+  height: 40px;
+  background: #6e84f8;
+  border: none;
+  box-shadow: 0px 2px 13px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.9em;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  background: #778bf0;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+  background: #6278e9;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(1px);
+}
+
+button:focus {
+  outline: none;
+}
+
+footer {
+  width: 460px;
+  margin: 40px auto;
+  padding: 30px;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+}
+
+header {
+  text-align: center;
+  border-bottom: 1px solid #eaeaea;
+  padding: 10px 0 40px;
+}
+
+.tooltip {
+  position: absolute;
+  padding: 12px 15px;
+  border-radius: 4px;
+  background: #eaeaea;
+}
+a {
+  color: rgb(77, 77, 250);
+}
+a:visited {
+  color: rgb(123, 77, 250);
+}
+g,header,footer {
+  animation: fade-in 0.2s linear;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0
+  }
+  to {
+    opacity: 1
+  }
+}
